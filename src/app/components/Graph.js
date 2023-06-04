@@ -1,17 +1,26 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateBlockCommits } from '../../redux/features/graph/graphSlice';
+// import { getColorForCommitLevel } from '../utils/colorCommitLevel';
 
 const Graph = () => {
-  // Generate random commit data for demonstration
-  const commitData = Array.from({ length: 365 }, () => Math.floor(Math.random() * 5));
+  const commitData = useSelector(state => state.graph);
+  const dispatch = useDispatch();
+
+  const handleMouseEnter = (index) => {
+    const updatedCommitCount = (commitData[index] + 1) % 5; // Increment commit count and reset to 0 if it reaches 5
+    dispatch(updateBlockCommits({ index, commitCount: updatedCommitCount }));
+  };
 
   return (
     <div className="graph">
       {commitData.map((commitCount, index) => (
-          <div
+        <div
           className="square"
           key={index}
           title={`${commitCount} commits`}
           style={{ backgroundColor: getColorForCommitLevel(commitCount) }}
+          onMouseEnter={() => handleMouseEnter(index)}
         />
       ))}
 
@@ -26,8 +35,8 @@ const Graph = () => {
         }
 
         .square {
-            height: 12px;
-            width: 12px;
+          height: 12px;
+          width: 12px;
           border-radius: 2px;
           transition: background-color 0.2s;
         }
@@ -36,20 +45,21 @@ const Graph = () => {
   );
 };
 
-// Helper function to get the color based on the commit level
-const getColorForCommitLevel = (commitLevel) => {
-  switch (commitLevel) {
-    case 1:
-      return '#c6e48b';
-    case 2:
-      return '#7bc96f';
-    case 3:
-      return '#239a3b';
-    case 4:
-      return '#196127';
-    default:
-      return '#ebedf0';
-  }
-};
-
 export default Graph;
+
+
+const getColorForCommitLevel = (commitLevel) => {
+    switch (commitLevel) {
+      case 1:
+        return '#c6e48b';
+      case 2:
+        return '#7bc96f';
+      case 3:
+        return '#239a3b';
+      case 4:
+        return '#196127';
+      default:
+        return '#828282';
+    }
+};
+  
