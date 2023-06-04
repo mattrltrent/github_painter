@@ -1,9 +1,9 @@
 "use client";
 
-import Image from 'next/image'
-import styles from "../app/page.module.css"
+import styles from "../app/styles/page.module.css"
+import Graph from './components/Graph';
 
-import { RootState } from "./../redux/store"
+
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement, incrementByAmount } from './../redux/features/counter/counterSlice'
 
@@ -15,6 +15,7 @@ export default function Home() {
     <main className={styles.main}>
       <button className={styles.button} onClick={() => dispatch(increment())}>Increment</button>
       <span>{count}</span>
+      <Graph />
       <button className={styles.button} onClick={() => dispatch(decrement())}>Decrement</button>
       <button className={styles.button} onClick={() => dispatch(incrementByAmount(2))}>Inc by 2</button>
     </main>
