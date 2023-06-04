@@ -127,16 +127,15 @@ const Graph = () => {
         .square {
             height: 15px;
             width: 15px;
-            padding: 3px;
             transition: background-color 0.3s;
             background-color: transparent;
             display: flex;
             cursor: crosshair;
             justify-content: center;
             align-items: center;
-            margin: 2px;
+            box-shadow: inset 0 0 0 1px #1c1c1c; /* Add an inset box shadow with the desired border color */
           }
-
+          
           
       `}</style>
     </div>
