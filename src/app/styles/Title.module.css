@@ -3,7 +3,14 @@
     text-align: left;
     font-weight: bold;
     font-size: 48px;
-    margin-bottom: 45px;
     color: #ffffff;
   }
   
+.subtitle {
+    font-family: 'inter', sans-serif;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 45px;
+    color: #ffffff;
+}

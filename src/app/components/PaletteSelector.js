@@ -32,7 +32,7 @@ const PaletteSelector = () => {
       <div className={styles.buttonGroup}>
         <TextButton text="Clear board (esc)" onClick={handleClearAll} />
         <div className={styles.between} />
-        <TextButton text="Instructions & repo" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
+        <TextButton text="Instructions & repo" onClick={() => open("https://github.com/mattrltrent/github_painter#usage")} />
         <div className={styles.between} />
         <TextButton className={styles.spacer} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
       </div>

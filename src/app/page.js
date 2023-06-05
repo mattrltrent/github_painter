@@ -2,8 +2,6 @@
 
 import styles from "../app/styles/page.module.css"
 import Graph from './components/Graph';
-import TextButton from "./components/TextButton";
-
 
 import PaletteSelector from "./components/PaletteSelector";
 import Title from "./components/Title";
@@ -16,7 +14,7 @@ export default function Home() {
       <YearSelector />
       <Graph />
       <PaletteSelector />
-      <span className={styles.center}>Use at your own risk, made in one day.</span>
+      <span className={styles.center}>Made in one day. Use at your own risk.</span>
     </main>
   )
 }

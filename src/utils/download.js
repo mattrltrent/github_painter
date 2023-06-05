@@ -41,7 +41,7 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   // create a link element
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'githubpainter.sh'; // Set the desired file name
+  link.download = 'github_painter.sh'; // Set the desired file name
 
   // simulate a click event to trigger the download
   link.click();
