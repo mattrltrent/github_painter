@@ -40,4 +40,4 @@
 
 ### Notes
 
-Use at your own risk, because I feel like committing a bunch of times could mess something up if used incorrectly. So, be careful.
+Use at your own risk, because I feel like committing a bunch of times could mess something up if used incorrectly. So, be careful and check the outputted `github_painter.sh` script before using it.

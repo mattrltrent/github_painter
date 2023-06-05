@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styles from '../styles/Title.module.css';
 
@@ -10,7 +11,7 @@ const Title = () => {
       />
       <h1 className={styles.title}>GitHub Contribution Graph Painter - β</h1>
       <h2 className={styles.subtitle}>
-        Embrace your inner Picasso. ⚠️ Don&apos;t use yet, I&apos;m still testing. ⚠️
+        Embrace your inner Picasso.
       </h2>
     </>
   );

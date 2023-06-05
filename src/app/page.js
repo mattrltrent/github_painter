@@ -1,4 +1,3 @@
-"use client";
 
 import styles from "../app/styles/page.module.css"
 import Graph from './components/Graph';
@@ -14,7 +13,7 @@ export default function Home() {
       <YearSelector />
       <Graph />
       <PaletteSelector />
-      <span className={styles.center}>Made in one day. Use at your own risk.</span>
+      <span className={styles.center}>Made in one day. Use at your own risk. Still in testing.</span>
     </main>
   )
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
@@ -44,25 +46,25 @@ const PaletteSelector = () => {
           text={"space"}
         />
         <PaletteButton
-          color="#c6e48b"
+          color="#196127"
           selected={selectedPalette === 'green1'}
           onClick={() => handlePaletteSelect('green1')}
           text={"a"}
         />
         <PaletteButton
-          color="#7bc96f"
+          color="#239a3b"
           selected={selectedPalette === 'green2'}
           onClick={() => handlePaletteSelect('green2')}
           text={"s"}
         />
         <PaletteButton
-          color="#239a3b"
+          color="#7bc96f"
           selected={selectedPalette === 'green3'}
           onClick={() => handlePaletteSelect('green3')}
           text={"d"}
         />
         <PaletteButton
-          color="#196127"
+          color="#c6e48b"
           selected={selectedPalette === 'green4'}
           onClick={() => handlePaletteSelect('green4')}
           text={"f"}

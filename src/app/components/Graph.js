@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateBlockCommits, clearAll } from '../../redux/features/graph/graphSlice';
@@ -164,13 +165,13 @@ const Graph = () => {
 
 const getColorForCommitLevel = (commitLevel) => {
   switch (commitLevel) {
-    case 1:
-      return '#c6e48b';
-    case 2:
-      return '#7bc96f';
-    case 3:
-      return '#239a3b';
     case 4:
+      return '#c6e48b';
+    case 3:
+      return '#7bc96f';
+    case 2:
+      return '#239a3b';
+    case 1:
       return '#196127';
     default:
       return '#292929';

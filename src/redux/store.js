@@ -1,4 +1,3 @@
-"use client";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { graphReducer } from "../redux/features/graph/graphSlice";
