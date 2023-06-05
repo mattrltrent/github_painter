@@ -23,7 +23,7 @@ const PaletteSelector = () => {
 
   return (
     <div className={ styles.topRow}>
-            <TextButton text="Clear board" onClick={handleClearAll} />
+            <TextButton text="Clear board (esc)" onClick={handleClearAll} />
             <div className="palette-selector">
       <PaletteButton 
         ref={(ref) => (buttonRefs.current[0] = ref)}

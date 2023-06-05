@@ -76,7 +76,7 @@ const Graph = () => {
 
 
   return (
-    <div       className={`graph ${isMouseDown ? 'heldDown' : ''}`}
+    <div       className="graph"
     ref={graphRef} onMouseUp={handleMouseUp}>
       <div className="row-container">
         {Array.from({ length: Math.ceil(commitData.grid.length / 7) }, (_, rowIndex) => (
@@ -117,10 +117,6 @@ const Graph = () => {
           overflow: hidden;
         }
 
-        .heldDown {
-          cursor: crosshair !important;
-        }
-
         .column-container {
           display: flex;
           flex-direction: column;
@@ -139,7 +135,7 @@ const Graph = () => {
           align-items: center;
           box-shadow: inset 0 0 0 1px #1c1c1c;
           width: 100%;
-          aspect-ratio: 1/1; /* Set the aspect ratio to 1:1 */
+          aspect-ratio: 1/1; 
         }
 
         .empty-spot {
@@ -159,7 +155,7 @@ const Graph = () => {
           flex-wrap: wrap;
           width: 100%;
           // aspect-ratio: 1/1;
-          cursor: pointer;
+          cursor: crosshair;
         }
       `}</style>
     </div>

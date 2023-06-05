@@ -19,6 +19,13 @@ const YearSelector = () => {
     dispatch(alterSize({ year: selectedYear })); // call the alterSize reducer action with the new year
   };
 
+  const handleKeyDown = (event) => {
+    if (event.target.classList.contains('text-field')) {
+      console.log('Keyboard listener triggered');
+      event.stopPropagation();
+    }
+  };
+
   const renderYearOptions = () => {
     const currentYear = new Date().getFullYear();
     const startYear = currentYear - 10; // specify the range of years (aka, the last 10 years)
@@ -37,55 +44,112 @@ const YearSelector = () => {
 
   return (
     <div className="year-selector">
-      <label htmlFor="year">Select a Year:</label>
       <div className="custom-select">
-        <select id="year" value={selectedYear} onChange={handleYearChange}>
-          <option value="">Select Year</option>
+        <input
+          type="text"
+          placeholder="Repo url"
+          className="text-field"
+          style={{ width: '200px' }}
+          onKeyDown={handleKeyDown}
+        />
+        <select
+          id="year"
+          value={selectedYear}
+          onChange={handleYearChange}
+          onKeyDown={handleKeyDown}
+        >
+          <option value="">Select year</option>
           {renderYearOptions()}
         </select>
       </div>
 
       <style jsx>{`
-        .year-selector {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
+.year-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
 
-        .custom-select {
-          position: relative;
-          background-color: #f7f7f7;
-          border-radius: 20px;
-          overflow: hidden;
-        }
+.custom-select {
 
-        select {
-          padding: 10px 20px;
-          width: 100%;
-          border: none;
-          appearance: none;
-          cursor: pointer;
-          text-align: center;
-          color: #000;
-          background-color: transparent;
-          outline: none;
-        }
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #292929;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 1px solid #616060;
+}
 
-        select:focus {
-          background-color: #fff;
-        }
+.select,
+.text-field {
+  cursor: text;
 
-        .selected-year {
-          margin-top: 5px;
-          padding: 4px 10px;
-          display: inline-block;
-          font-weight: bold;
-          background-color: #000;
-          color: #fff;
-          border-radius: 50px;
-          font-size: 12px;
-        }
-      `}</style>
+  padding: 8px 15px;
+  border: none;
+  appearance: none;
+  text-align: center;
+  color: #ffffff;
+  background-color: #292929;
+  outline: none;
+}
+
+.text-field::placeholder {
+
+  color: #9d9d9d;
+}
+
+.custom-select select {
+  cursor: pointer;
+
+  background-color: #292929;
+  border-radius: 0;
+  border: none;
+  color: #ffffff;
+  text-align-last: center;
+  padding-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.custom-select select::-ms-expand {
+
+  display: none;
+}
+
+.custom-select select:focus {
+
+  background-color: #292929;
+  outline: none;
+}
+
+.custom-select::after {
+
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: #ffffff transparent transparent transparent;
+  pointer-events: none;
+}
+
+.text-field,
+select {
+
+  flex: 1;
+  height: auto;
+}
+
+
+ `}</style>
     </div>
   );
 };
