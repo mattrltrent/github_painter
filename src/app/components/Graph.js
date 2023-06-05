@@ -76,7 +76,8 @@ const Graph = () => {
 
 
   return (
-    <div className="graph" ref={graphRef} onMouseUp={handleMouseUp}>
+    <div       className={`graph ${isMouseDown ? 'heldDown' : ''}`}
+    ref={graphRef} onMouseUp={handleMouseUp}>
       <div className="row-container">
         {Array.from({ length: Math.ceil(commitData.grid.length / 7) }, (_, rowIndex) => (
           <div className="column-container" key={rowIndex}>
@@ -94,7 +95,7 @@ const Graph = () => {
                 <div
                   className="square"
                   key={blockIndex}
-                  title={`${commitCount} commits, ${adjustedBlockIndex}`}
+                  title={`${commitCount === 1 ? commitCount + " commit" : commitCount + " commits"}`}
                   onMouseDown={() => handleMouseDown(adjustedBlockIndex)}
                   style={{ backgroundColor: getColorForCommitLevel(commitCount) }}
                   onMouseEnter={() => handleMouseEnter(adjustedBlockIndex)}
@@ -116,6 +117,10 @@ const Graph = () => {
           overflow: hidden;
         }
 
+        .heldDown {
+          cursor: crosshair !important;
+        }
+
         .column-container {
           display: flex;
           flex-direction: column;
@@ -130,7 +135,6 @@ const Graph = () => {
           transition: background-color 0.3s;
           background-color: transparent;
           display: flex;
-          cursor: crosshair;
           justify-content: center;
           align-items: center;
           box-shadow: inset 0 0 0 1px #1c1c1c;
@@ -152,11 +156,10 @@ const Graph = () => {
           overflow: auto;
           shape-rendering: crispEdges;
           box-shadow: 0 0 5px #616060;
-          cursor: crosshair;
           flex-wrap: wrap;
           width: 100%;
           // aspect-ratio: 1/1;
-          cursor: crosshair;
+          cursor: pointer;
         }
       `}</style>
     </div>

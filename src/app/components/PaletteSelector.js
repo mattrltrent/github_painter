@@ -4,6 +4,8 @@ import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { clearAll } from '../../redux/features/graph/graphSlice';
 import { selectYear } from '../../redux/features/year/yearSlice';
 import PaletteButton from "../components/PaletteButton";
+import TextButton from "../components/TextButton";
+import styles from "../styles/PaletteSelector.module.css";
 
 
 const PaletteSelector = () => {
@@ -20,7 +22,9 @@ const PaletteSelector = () => {
   };
 
   return (
-    <div className="palette-selector">
+    <div className={ styles.topRow}>
+            <TextButton text="Clear board" onClick={handleClearAll} />
+            <div className="palette-selector">
       <PaletteButton 
         ref={(ref) => (buttonRefs.current[0] = ref)}
         color="#292929"
@@ -56,13 +60,11 @@ const PaletteSelector = () => {
         onClick={() => handlePaletteSelect('green4')}
         text={"f"}
       />
-      <button className="clear-all-button" onClick={handleClearAll}>
-        Clear All (esc)
-      </button>
 
       <style jsx>{`
         .palette-selector {
           display: flex;
+          flex-direction: row;
           margin-top: 15px;
           justify-content: left;
           margin-bottom: 10px;
@@ -98,6 +100,8 @@ const PaletteSelector = () => {
         }
       `}</style>
     </div>
+    </div>
+    
   );
 };
 

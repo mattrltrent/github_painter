@@ -1,0 +1,8 @@
+.textButton {
+    cursor: pointer;
+  }
+  
+  .textButton:hover {
+    text-decoration: underline;
+  }
+  

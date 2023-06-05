@@ -2,6 +2,7 @@
 
 import styles from "../app/styles/page.module.css"
 import Graph from './components/Graph';
+import TextButton from "./components/TextButton";
 
 
 import PaletteSelector from "./components/PaletteSelector";
