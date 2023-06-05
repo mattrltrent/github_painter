@@ -2,9 +2,15 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectYear } from '../../redux/features/year/yearSlice';
 import { clearAll, alterSize } from '../../redux/features/graph/graphSlice';
+import {
+  setTextFieldValue,
+  clearTextFieldValue,
+  selectTextFieldValue,
+} from '../../redux/features/text/textSlice';
 
 const YearSelector = () => {
   const selectedYear = useSelector((state) => state.year.selectedYear);
+  const textFieldValue = useSelector(selectTextFieldValue);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,6 +18,12 @@ const YearSelector = () => {
       dispatch(clearAll()); // call the clearAll reducer action
     }
   }, [selectedYear, dispatch]);
+
+
+  const handleTextFieldChange = (event) => {
+    const value = event.target.value;
+    dispatch(setTextFieldValue(value));
+  };
 
   const handleYearChange = (event) => {
     const selectedYear = parseInt(event.target.value);
@@ -28,7 +40,7 @@ const YearSelector = () => {
 
   const renderYearOptions = () => {
     const currentYear = new Date().getFullYear();
-    const startYear = currentYear - 10; // specify the range of years (aka, the last 10 years)
+    const startYear = currentYear - 15; // specify the range of years (aka, the last 10 years)
     const endYear = currentYear;
 
     const options = [];
@@ -46,12 +58,15 @@ const YearSelector = () => {
     <div className="year-selector">
       <div className="custom-select">
         <input
-          type="text"
-          placeholder="Repo url"
-          className="text-field"
-          style={{ width: '200px' }}
-          onKeyDown={handleKeyDown}
+         type="text"
+         placeholder="Repo url"
+         className="text-field"
+         style={{ width: '200px' }}
+         value={textFieldValue}
+         onChange={handleTextFieldChange}
+         onKeyDown={handleKeyDown}
         />
+        <div className="separator"></div>
         <select
           id="year"
           value={selectedYear}
@@ -64,92 +79,90 @@ const YearSelector = () => {
       </div>
 
       <style jsx>{`
-.year-selector {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 30px;
-}
+        .year-selector {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 15px;
 
-.custom-select {
+        }
 
-  display: flex;
-  align-items: center;
-  border-radius: 20px;
-  background-color: #292929;
-  overflow: hidden;
-  margin-bottom: 15px;
-  border: 1px solid #616060;
-}
+        .custom-select {
+          display: flex;
+          align-items: center;
+          background-color: #292929;
+          overflow: hidden;
+          margin-bottom: 15px;
+          border: 1px solid #616060;
+          position: relative;
+          box-shadow: 0 0 5px #616060;
+        }
 
-.select,
-.text-field {
-  cursor: text;
+        .separator {
+          width: 1px;
+          height: 80%;
+          background-color: #616060;
+        }
 
-  padding: 8px 15px;
-  border: none;
-  appearance: none;
-  text-align: center;
-  color: #ffffff;
-  background-color: #292929;
-  outline: none;
-}
+        .select,
+        .text-field {
+          cursor: text;
+          padding: 8px 15px;
+          border: none;
+          appearance: none;
+          text-align: center;
+          color: #ffffff;
+          background-color: #292929;
+          outline: none;
+        }
 
-.text-field::placeholder {
+        .text-field::placeholder {
+          color: #9d9d9d;
+        }
 
-  color: #9d9d9d;
-}
+        .custom-select select {
+          cursor: pointer;
+          background-color: #292929;
+          border-radius: 0;
+          border: none;
+          color: #ffffff;
+          text-align-last: center;
+          padding-right: 16px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          outline: none;
+        }
 
-.custom-select select {
-  cursor: pointer;
+        .custom-select select::-ms-expand {
+          display: none;
+        }
 
-  background-color: #292929;
-  border-radius: 0;
-  border: none;
-  color: #ffffff;
-  text-align-last: center;
-  padding-right: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-}
+        .custom-select select:focus {
+          background-color: #292929;
+          outline: none;
+        }
 
-.custom-select select::-ms-expand {
+        .custom-select::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 6px 6px 0 6px;
+          border-color: #ffffff transparent transparent transparent;
+          pointer-events: none;
+        }
 
-  display: none;
-}
-
-.custom-select select:focus {
-
-  background-color: #292929;
-  outline: none;
-}
-
-.custom-select::after {
-
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 6px 0 6px;
-  border-color: #ffffff transparent transparent transparent;
-  pointer-events: none;
-}
-
-.text-field,
-select {
-
-  flex: 1;
-  height: auto;
-}
-
-
- `}</style>
+        .text-field,
+        select {
+          flex: 1;
+          height: auto;
+        }
+      `}</style>
     </div>
   );
 };

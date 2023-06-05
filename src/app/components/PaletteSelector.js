@@ -2,14 +2,20 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { clearAll } from '../../redux/features/graph/graphSlice';
-import { selectYear } from '../../redux/features/year/yearSlice';
 import PaletteButton from "../components/PaletteButton";
 import TextButton from "../components/TextButton";
 import styles from "../styles/PaletteSelector.module.css";
+import downloadFile from '@/utils/download';
+import { selectGraph } from '../../redux/features/graph/graphSlice';
+import { selectedText } from '../../redux/features/text/textSlice';
+import { selectedYear } from '../../redux/features/year/yearSlice';
 
 
 const PaletteSelector = () => {
   const selectedPalette = useSelector((state) => state.palette.selectedPalette);
+  const selectedTextVal = useSelector(selectedText);
+  const selectedGraph = useSelector(selectGraph);
+  const selectedYearVal = useSelector(selectedYear);
   const dispatch = useDispatch();
   const buttonRefs = useRef([]);
 
@@ -22,86 +28,57 @@ const PaletteSelector = () => {
   };
 
   return (
-    <div className={ styles.topRow}>
-            <TextButton text="Clear board (esc)" onClick={handleClearAll} />
-            <div className="palette-selector">
-      <PaletteButton 
-        ref={(ref) => (buttonRefs.current[0] = ref)}
-        color="#292929"
-        selected={selectedPalette === 'blank'}
-        onClick={() => handlePaletteSelect('blank')}
-        text={"space"}
-      />
-      <PaletteButton 
-        ref={(ref) => (buttonRefs.current[1] = ref)}
-        color="#c6e48b"
-        selected={selectedPalette === 'green1'}
-        onClick={() => handlePaletteSelect('green1')}
-        text={"a"}
-      />
-      <PaletteButton 
-        ref={(ref) => (buttonRefs.current[2] = ref)}
-        color="#7bc96f"
-        selected={selectedPalette === 'green2'}
-        onClick={() => handlePaletteSelect('green2')}
-        text={"s"}
-      />
-      <PaletteButton 
-        ref={(ref) => (buttonRefs.current[3] = ref)}
-        color="#239a3b"
-        selected={selectedPalette === 'green3'}
-        onClick={() => handlePaletteSelect('green3')}
-        text={"d"}
-      />
-  <PaletteButton 
-        ref={(ref) => (buttonRefs.current[4] = ref)}
-        color="#196127"
-        selected={selectedPalette === 'green4'}
-        onClick={() => handlePaletteSelect('green4')}
-        text={"f"}
-      />
+    <div className={styles.topRow}>
+      <div className={styles.buttonGroup}>
+        <TextButton text="Clear board (esc)" onClick={handleClearAll} />
+        <div className={styles.between} />
+        <TextButton text="Instructions & repo" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
+        <div className={styles.between} />
+        <TextButton className={styles.spacer} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
+      </div>
+      <div className="palette-selector">
+        <PaletteButton
+          color="#292929"
+          selected={selectedPalette === 'blank'}
+          onClick={() => handlePaletteSelect('blank')}
+          text={"space"}
+        />
+        <PaletteButton
+          color="#c6e48b"
+          selected={selectedPalette === 'green1'}
+          onClick={() => handlePaletteSelect('green1')}
+          text={"a"}
+        />
+        <PaletteButton
+          color="#7bc96f"
+          selected={selectedPalette === 'green2'}
+          onClick={() => handlePaletteSelect('green2')}
+          text={"s"}
+        />
+        <PaletteButton
+          color="#239a3b"
+          selected={selectedPalette === 'green3'}
+          onClick={() => handlePaletteSelect('green3')}
+          text={"d"}
+        />
+        <PaletteButton
+          color="#196127"
+          selected={selectedPalette === 'green4'}
+          onClick={() => handlePaletteSelect('green4')}
+          text={"f"}
+        />
+      </div>
 
       <style jsx>{`
         .palette-selector {
           display: flex;
-          flex-direction: row;
+          flex-wrap: wrap; 
+          justify-content: flex-start; 
           margin-top: 15px;
-          justify-content: left;
           margin-bottom: 10px;
-        }
-
-        .palette-option {
-          margin-right: 5px;
-          padding: 5px 10px;
-          background-color: #030100;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          outline: none; /* Remove default focus outline */
-        }
-
-        .palette-option:focus {
-          /* Customize focus styles */
-          box-shadow: 0 0 0 2px #c6e48b;
-        }
-
-        .selected {
-          background-color: #c6e48b;
-        }
-
-        .clear-all-button {
-          margin-left: 10px;
-          padding: 5px 10px;
-          background-color: #030100;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          outline: none;
         }
       `}</style>
     </div>
-    </div>
-    
   );
 };
 

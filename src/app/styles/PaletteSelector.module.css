@@ -3,4 +3,51 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-}
+  }
+  
+  .buttonGroup {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .between {
+    margin-left: 30px !important;
+  }
+  
+  .paletteSelector {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    justify-content: left;
+    margin-bottom: 10px;
+  }
+  
+  .paletteOption {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #030100;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .paletteOption:focus {
+    box-shadow: 0 0 0 2px #c6e48b;
+  }
+  
+  .selected {
+    background-color: #c6e48b;
+  }
+  
+  .clearAllButton {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #030100;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+  

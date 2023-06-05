@@ -1,21 +1,30 @@
 .main {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 6rem;
-    min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.center {
+  text-align: center;
+}
+
+.button {
+  margin: 30px;
+  padding: 8px 20px;
+  background-color: #01110A;
+  border: 0;
+  box-shadow: 0 0 2px 1px #909090;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
   }
-  
-  .button {
-    margin: 30px;
-    padding: 8px 20px;
-    background-color: #01110A;
-    border: 0;
-    box-shadow: 0 0 2px 1px #909090;
-    border-radius: 10px;
-    color: white;
-    font-size: 18px;
-    font-weight: 900;
-  }
-  
+}

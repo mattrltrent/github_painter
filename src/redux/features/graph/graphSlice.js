@@ -1,12 +1,10 @@
-"use client";
-
+// graphSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-// offset and grid
 const initialState = {
   offset: 2,
-  grid: Array.from({ length: 365 }, () => 0)
-}
+  grid: Array.from({ length: 365 }, () => 0),
+};
 
 export const graphSlice = createSlice({
   name: "graph",
@@ -14,15 +12,14 @@ export const graphSlice = createSlice({
   reducers: {
     updateBlockCommits: (state, action) => {
       const { index, commitCount } = action.payload;
-      const newGrid = [...state.grid]; 
+      const newGrid = [...state.grid];
       newGrid[index] = commitCount;
-      var newState = {
-        offset: state.offset,
+      return {
+        ...state,
         grid: newGrid,
-      }
-      return newState;
+      };
     },
-    clearAll: (state, _) => {
+    clearAll: (state) => {
       const updatedGrid = state.grid.map(() => 0); // set each item to zero (blank)
       return {
         ...state,
@@ -36,16 +33,18 @@ export const graphSlice = createSlice({
       const isLeapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
       const numberOfDays = isLeapYear ? 366 : 365;
       const updatedGrid = Array.from({ length: numberOfDays }, () => 0);
-      var newState = {
-        offset: offset,
+      return {
+        offset,
         grid: updatedGrid,
-      }
-      return newState;
+      };
     },
-    
   },
 });
 
 export const { updateBlockCommits, clearAll, alterSize } = graphSlice.actions;
 export const selectOffset = (state) => state.graph.offset;
+export const selectGraphGrid = (state) => state.graph.grid;
+export const selectGraph = (state) => state.graph;
 export const graphReducer = graphSlice.reducer;
+
+export default graphSlice.reducer;
