@@ -1,19 +1,17 @@
 ## GitHub Contribution Graph Painter - β
-**Add amazing art to your profile — in the present, or from years past! [Mobile version](https://github.com/TalentedB/GitHub-Painter)**
+**Add amazing art to your profile — in the present, or from years past! [Mobile version](https://github.com/TalentedB/GitHub-Painter).**
 
 <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_3.JPG" width="" height="200" style="display: inline"/>
 
-⚠️ Don't use yet, I'm still testing. ⚠️
-
 ### What everything does
 
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_1.jpg" width="" height="200" style="display: inline"/>
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_1.jpg" width="" height="400" style="display: inline"/>
 
-[1]. The year you want to push your art to. Yes, GitHub allows commits in the past, making this possible.
-[2]. The URL of your GitHub repo. This is provided to you when creating the repo. For example, for this repo, the URL is `https://github.com/mattrltrent/github_painter.git`. It's usually referred to as the upstream, or remote, origin.
-[3]. Downloads the script as `github_painter.sh`.
-[4]. Clears the board. Hotkey: `esc`.
-[5]. The palette you can use to draw on the contribution grid. Hotkeys: `space`, `a`, `s`, `d`, `f`.
+- [1]. The year you want to push your art to. Yes, GitHub allows commits in the past, making this possible.
+- [2]. The URL of your GitHub repo. This is provided to you when creating the repo. For example, for this repo, the URL is `https://github.com/mattrltrent/github_painter.git`. It's usually referred to as the upstream, or remote, origin.
+- [3]. Downloads the script as `github_painter.sh`.
+- [4]. Clears the board. Hotkey: `esc`.
+- [5]. The palette you can use to draw on the contribution grid. Hotkeys: `space`, `a`, `s`, `d`, `f`.
 
 ### Usage
 
