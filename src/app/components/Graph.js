@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateBlockCommits, clearAll } from '../../redux/features/graph/graphSlice';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { selectOffset } from '../../redux/features/graph/graphSlice';
+import {blank, green1, green2, green3, green4} from '@/utils/constants';
 
 const Graph = () => {
   const paletteValue = useSelector((state) => state.palette.selectedPalette);
@@ -166,15 +167,15 @@ const Graph = () => {
 const getColorForCommitLevel = (commitLevel) => {
   switch (commitLevel) {
     case 4:
-      return '#c6e48b';
+      return green4;
     case 3:
-      return '#7bc96f';
+      return green3;
     case 2:
-      return '#239a3b';
+      return green2;
     case 1:
-      return '#196127';
+      return green1;
     default:
-      return '#292929';
+      return blank;
   }
 };
 

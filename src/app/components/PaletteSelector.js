@@ -11,6 +11,7 @@ import downloadFile from '@/utils/download';
 import { selectGraph } from '../../redux/features/graph/graphSlice';
 import { selectedText } from '../../redux/features/text/textSlice';
 import { selectedYear } from '../../redux/features/year/yearSlice';
+import {blank, green1, green2, green3, green4} from '@/utils/constants';
 
 
 const PaletteSelector = () => {
@@ -40,31 +41,31 @@ const PaletteSelector = () => {
       </div>
       <div className="palette-selector">
         <PaletteButton
-          color="#292929"
+          color={blank}
           selected={selectedPalette === 'blank'}
           onClick={() => handlePaletteSelect('blank')}
           text={"space"}
         />
         <PaletteButton
-          color="#196127"
+          color={green1}
           selected={selectedPalette === 'green1'}
           onClick={() => handlePaletteSelect('green1')}
           text={"a"}
         />
         <PaletteButton
-          color="#239a3b"
+          color={green2}
           selected={selectedPalette === 'green2'}
           onClick={() => handlePaletteSelect('green2')}
           text={"s"}
         />
         <PaletteButton
-          color="#7bc96f"
+          color={green3}
           selected={selectedPalette === 'green3'}
           onClick={() => handlePaletteSelect('green3')}
           text={"d"}
         />
         <PaletteButton
-          color="#c6e48b"
+          color={green4}
           selected={selectedPalette === 'green4'}
           onClick={() => handlePaletteSelect('green4')}
           text={"f"}
