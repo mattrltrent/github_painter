@@ -13,4 +13,4 @@ export const store = configureStore({
         year: yearReducer,
         text: textReducer
     }
-});2
+});
