@@ -1,0 +1,73 @@
+.palette-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+    outline: none;
+  }
+  
+  .palette-button.selected::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+  }
+
+  .textSelected {
+    color: white;
+    font-size: 16px;
+    font-family: 'inter', sans-serif;
+  }
+
+  .textNotSelected {
+    color: #9d9d9d;
+    font-size: 16px;
+    font-family: 'inter', sans-serif;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .palette-button .selected-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .palette-button.animating {
+    animation: pulse 0.3s;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

@@ -13,8 +13,8 @@ export default function Home() {
     <main className={styles.main}>
       <Title />
       <YearSelector />
-      <PaletteSelector />
       <Graph />
+      <PaletteSelector />
     </main>
   )
 }

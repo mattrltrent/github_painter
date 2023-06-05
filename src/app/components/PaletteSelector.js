@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { clearAll } from '../../redux/features/graph/graphSlice';
 import { selectYear } from '../../redux/features/year/yearSlice';
+import PaletteButton from "../components/PaletteButton";
 
 
 const PaletteSelector = () => {
@@ -18,51 +19,43 @@ const PaletteSelector = () => {
     dispatch(clearAll());
   };
 
-  useEffect(() => {
-    // focus on the first button initially
-    if (buttonRefs.current.length > 0) {
-      buttonRefs.current[1].focus();
-    }
-  }, []);
-
-
   return (
     <div className="palette-selector">
-      <button
+      <PaletteButton 
         ref={(ref) => (buttonRefs.current[0] = ref)}
-        className={`palette-option ${selectedPalette === 'blank' ? 'selected' : ''}`}
+        color="#292929"
+        selected={selectedPalette === 'blank'}
         onClick={() => handlePaletteSelect('blank')}
-      >
-        Blank (space)
-      </button>
-      <button
+        text={"space"}
+      />
+      <PaletteButton 
         ref={(ref) => (buttonRefs.current[1] = ref)}
-        className={`palette-option ${selectedPalette === 'green1' ? 'selected' : ''}`}
+        color="#c6e48b"
+        selected={selectedPalette === 'green1'}
         onClick={() => handlePaletteSelect('green1')}
-      >
-        Green 1 (1)
-      </button>
-      <button
+        text={"a"}
+      />
+      <PaletteButton 
         ref={(ref) => (buttonRefs.current[2] = ref)}
-        className={`palette-option ${selectedPalette === 'green2' ? 'selected' : ''}`}
+        color="#7bc96f"
+        selected={selectedPalette === 'green2'}
         onClick={() => handlePaletteSelect('green2')}
-      >
-        Green 2 (2)
-      </button>
-      <button
+        text={"s"}
+      />
+      <PaletteButton 
         ref={(ref) => (buttonRefs.current[3] = ref)}
-        className={`palette-option ${selectedPalette === 'green3' ? 'selected' : ''}`}
+        color="#239a3b"
+        selected={selectedPalette === 'green3'}
         onClick={() => handlePaletteSelect('green3')}
-      >
-        Green 3 (3)
-      </button>
-      <button
+        text={"d"}
+      />
+  <PaletteButton 
         ref={(ref) => (buttonRefs.current[4] = ref)}
-        className={`palette-option ${selectedPalette === 'green4' ? 'selected' : ''}`}
+        color="#196127"
+        selected={selectedPalette === 'green4'}
         onClick={() => handlePaletteSelect('green4')}
-      >
-        Green 4 (4)
-      </button>
+        text={"f"}
+      />
       <button className="clear-all-button" onClick={handleClearAll}>
         Clear All (esc)
       </button>
@@ -70,7 +63,8 @@ const PaletteSelector = () => {
       <style jsx>{`
         .palette-selector {
           display: flex;
-          justify-content: center;
+          margin-top: 15px;
+          justify-content: left;
           margin-bottom: 10px;
         }
 

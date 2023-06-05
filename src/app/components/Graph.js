@@ -10,7 +10,6 @@ const Graph = () => {
   const dispatch = useDispatch();
   const [isMouseDown, setIsMouseDown] = useState(false);
   const graphRef = useRef(null);
-  const selectedYear = useSelector((state) => state.year.selectedYear);
 
   const handleMouseEnter = (index) => {
     if (isMouseDown) {
@@ -24,16 +23,16 @@ const Graph = () => {
 
   const handleKeyDown = (event) => {
     switch (event.key) {
-      case '1':
+      case 'a':
         dispatch(selectPalette('green1'));
         break;
-      case '2':
+      case 's':
         dispatch(selectPalette('green2'));
         break;
-      case '3':
+      case 'd':
         dispatch(selectPalette('green3'));
         break;
-      case '4':
+      case 'f':
         dispatch(selectPalette('green4'));
         break;
       case ' ':
@@ -157,6 +156,7 @@ const Graph = () => {
           flex-wrap: wrap;
           width: 100%;
           // aspect-ratio: 1/1;
+          cursor: crosshair;
         }
       `}</style>
     </div>
