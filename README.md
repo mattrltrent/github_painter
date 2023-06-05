@@ -1,7 +1,13 @@
-## todo
+## GitHub Contribution Graph Painter - β
 
-- adjust graph by year
-- commit a bunch then push ONCE
-- instructions with example
-- fix tab/focus issue with buttons
-- link icon to github repo
+### What everything does
+
+<img src="https://github.com/mattrltrent/github_painter/blob/main/github/demo_1.jpg?raw=true" width="300" height="" style="display: inline"/>
+
+### Usage
+
+
+
+### Troubleshooting
+
+- priv repo contributions
