@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { clearAll } from '../../redux/features/graph/graphSlice';
+import { selectYear } from '../../redux/features/year/yearSlice';
+
 
 const PaletteSelector = () => {
   const selectedPalette = useSelector((state) => state.palette.selectedPalette);
