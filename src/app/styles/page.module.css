@@ -5,6 +5,7 @@
   text-align: center;
   padding: 6rem;
   min-height: 100vh;
+  background-color: #1b1b1b;
 }
 
 .center {
@@ -25,6 +26,6 @@
 
 @media (max-width: 768px) {
   .main {
-    padding: 1rem;
+    padding: 2rem;
   }
 }

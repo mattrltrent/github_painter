@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateBlockCommits, clearAll } from '../../redux/features/graph/graphSlice';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { selectOffset } from '../../redux/features/graph/graphSlice';
-import {blank, green1, green2, green3, green4} from '@/utils/constants';
+import {backgroundBlack, blank, borderGray, green1, green2, green3, green4} from '@/utils/constants';
 
 const Graph = () => {
   const paletteValue = useSelector((state) => state.palette.selectedPalette);
@@ -135,7 +135,7 @@ const Graph = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          box-shadow: inset 0 0 0 1px #1c1c1c;
+          box-shadow: inset 0 0 0 1px ${backgroundBlack};
           width: 100%;
           aspect-ratio: 1/1; 
         }
@@ -149,11 +149,11 @@ const Graph = () => {
 
         .graph {
           padding: 5px;
-          background-color: #1c1c1c;
-          border: 1px solid #616060;
+          background-color: ${backgroundBlack};
+          border: 1px solid ${borderGray};
           overflow: auto;
           shape-rendering: crispEdges;
-          box-shadow: 0 0 5px #616060;
+          box-shadow: 0 0 5px ${borderGray};
           flex-wrap: wrap;
           width: 100%;
           // aspect-ratio: 1/1;

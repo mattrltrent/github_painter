@@ -9,6 +9,7 @@ import {
   clearTextFieldValue,
   selectTextFieldValue,
 } from '../../redux/features/text/textSlice';
+import { backgroundGray, borderGray } from '@/utils/constants';
 
 const YearSelector = () => {
   const selectedYear = useSelector((state) => state.year.selectedYear);
@@ -92,18 +93,18 @@ const YearSelector = () => {
         .custom-select {
           display: flex;
           align-items: center;
-          background-color: #292929;
+          background-color: ${backgroundGray};
           overflow: hidden;
           margin-bottom: 15px;
-          border: 1px solid #616060;
+          border: 1px solid ${borderGray};
           position: relative;
-          box-shadow: 0 0 5px #616060;
+          box-shadow: 0 0 5px ${borderGray};
         }
 
         .separator {
           width: 1px;
           height: 80%;
-          background-color: #616060;
+          background-color: ${borderGray};
         }
 
         .select,
@@ -114,7 +115,7 @@ const YearSelector = () => {
           appearance: none;
           text-align: center;
           color: #ffffff;
-          background-color: #292929;
+          background-color: ${backgroundGray};
           outline: none;
         }
 
@@ -124,7 +125,7 @@ const YearSelector = () => {
 
         .custom-select select {
           cursor: pointer;
-          background-color: #292929;
+          background-color: ${backgroundGray};
           border-radius: 0;
           border: none;
           color: #ffffff;
@@ -141,7 +142,7 @@ const YearSelector = () => {
         }
 
         .custom-select select:focus {
-          background-color: #292929;
+          background-color: ${backgroundGray};
           outline: none;
         }
 

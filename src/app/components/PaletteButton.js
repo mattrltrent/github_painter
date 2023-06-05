@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './../styles/PaletteButton.module.css';
+import { backgroundGray } from '@/utils/constants';
 
 const PaletteButton = ({ color, selected, onClick, text }) => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -35,7 +36,7 @@ const PaletteButton = ({ color, selected, onClick, text }) => {
         onClick={handleClick}
         style={{
           backgroundColor: color,
-          border: selected ? '3px solid white' : '0px solid #292929',
+          border: selected ? '3px solid white' : `0px solid ${backgroundGray}`,
         }}
       >
         {selected && <span className={styles['selected-indicator']} />}
