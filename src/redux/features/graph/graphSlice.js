@@ -14,7 +14,7 @@ export const graphSlice = createSlice({
   reducers: {
     updateBlockCommits: (state, action) => {
       const { index, commitCount } = action.payload;
-      const newGrid = [...state.grid]; // Create a new copy of the grid array
+      const newGrid = [...state.grid]; 
       newGrid[index] = commitCount;
       var newState = {
         offset: state.offset,

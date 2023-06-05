@@ -3,9 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateBlockCommits, clearAll } from '../../redux/features/graph/graphSlice';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { selectOffset } from '../../redux/features/graph/graphSlice';
-import { selectYear } from '../../redux/features/year/yearSlice';
-
-
 
 const Graph = () => {
   const paletteValue = useSelector((state) => state.palette.selectedPalette);
@@ -49,6 +46,7 @@ const Graph = () => {
         break;
     }
   };
+
   const offset = useSelector(selectOffset);
 
   const handleMouseDown = (index) => {
@@ -70,7 +68,6 @@ const Graph = () => {
   };
 
   useEffect(() => {
-
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -79,22 +76,21 @@ const Graph = () => {
 
 
 
-  return (
-    <div className="graph" ref={graphRef} onMouseUp={handleMouseUp}>
-      <div className="row-container">
+return (
+  <div className="graph" ref={graphRef} onMouseUp={handleMouseUp}>
+    <div className="row-container">
       {Array.from({ length: Math.ceil(commitData.grid.length / 7) }, (_, rowIndex) => (
         <div className="column-container" key={rowIndex}>
           {Array.from({ length: 7 }, (_, columnIndex) => {
             const blockIndex = rowIndex * 7 + columnIndex;
-            const adjustedBlockIndex = blockIndex - offset; // Subtract the offset
-  
+            const adjustedBlockIndex = blockIndex - offset;
+
             if (adjustedBlockIndex < 0 || adjustedBlockIndex >= commitData.grid.length) {
-              // Render empty spot for the offset
               return <div className="empty-spot" key={blockIndex} />;
             }
-  
+
             const commitCount = commitData.grid[adjustedBlockIndex];
-  
+
             return (
               <div
                 className="square"
@@ -112,49 +108,57 @@ const Graph = () => {
         </div>
       ))}
     </div>
-  
-      <style jsx>{`
-        .row-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: flex-start;
-        }
-  
-        .column-container {
-          display: flex;
-          flex-direction: column;
-        }
-  
-        .square {
-          height: 15px;
-          width: 15px;
-          transition: background-color 0.3s;
-          background-color: transparent;
-          display: flex;
-          cursor: crosshair;
-          justify-content: center;
-          align-items: center;
-          box-shadow: inset 0 0 0 1px #1c1c1c;
-        }
-  
-        .empty-spot {
-          height: 15px;
-          width: 15px;
-          box-shadow: none;
-        }
-  
-        .graph {
-          padding: 5px;
-          background-color: #1c1c1c;
-          overflow: auto;
-          shape-rendering: crispEdges;
-          box-shadow: 0 0 70px rgba(0, 223, 162, 0.15);
-          cursor: crosshair;
-        }
-      `}</style>
-    </div>
-  );
-  
+
+    <style jsx>{`
+      .row-container {
+        display: flex;
+        flex-wrap: no-wrap;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .column-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;  */
+        flex-basis: 0; 
+        flex-grow: 1;
+      }
+      
+      .square {
+        flex: 1 0 0;
+        padding: 0;
+        transition: background-color 0.3s;
+        background-color: transparent;
+        display: flex;
+        cursor: crosshair;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 0 0 1px #1c1c1c;
+        min-width: 1.5vw;
+        min-height: 1.5vw;
+      }
+      
+      .empty-spot {
+        flex: 1; 
+        box-shadow: none;
+      }
+
+      .graph {
+        padding: 5px;
+        background-color: #1c1c1c;
+        overflow: auto;
+        shape-rendering: crispEdges;
+        box-shadow: 0 0 70px rgba(0, 223, 162, 0.15);
+        cursor: crosshair;
+        flex-wrap: wrap;
+        height: 100%;
+      }
+    `}</style>
+  </div>
+);
+
+
 };
 
 const getColorForCommitLevel = (commitLevel) => {
