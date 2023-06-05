@@ -9,9 +9,9 @@ const Title = () => {
         href="https://fonts.googleapis.com/css2?family=inter&display=swap"
         rel="stylesheet"
       />
-      <h1 className={styles.title}>GitHub Contribution Graph Painter - β</h1>
+      <h1 className={styles.title}>GitHub Contribution Graph Painter</h1>
       <h2 className={styles.subtitle}>
-        Embrace your inner Picasso.
+        Embrace your inner Picasso. Made in one day, so use at your own risk. Still in testing.
       </h2>
     </>
   );

@@ -77,7 +77,7 @@ const PaletteSelector = () => {
           display: flex;
           flex-wrap: wrap; 
           justify-content: flex-start; 
-          margin-top: 15px;
+          margin-top: 5px;
           margin-bottom: 10px;
         }
       `}</style>

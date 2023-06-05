@@ -13,7 +13,6 @@ export default function Home() {
       <YearSelector />
       <Graph />
       <PaletteSelector />
-      <span className={styles.center}>Made in one day. Use at your own risk. Still in testing.</span>
     </main>
   )
 }

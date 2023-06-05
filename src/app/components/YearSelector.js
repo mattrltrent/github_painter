@@ -62,7 +62,7 @@ const YearSelector = () => {
       <div className="custom-select">
         <input
          type="text"
-         placeholder="Repo url"
+         placeholder="Remote origin url"
          className="text-field"
          style={{ width: '200px' }}
          value={textFieldValue}
@@ -87,7 +87,6 @@ const YearSelector = () => {
           align-items: center;
           gap: 10px;
           margin-top: 15px;
-
         }
 
         .custom-select {
@@ -99,6 +98,7 @@ const YearSelector = () => {
           border: 1px solid ${borderGray};
           position: relative;
           box-shadow: 0 0 5px ${borderGray};
+          width: 100%;
         }
 
         .separator {
@@ -107,7 +107,6 @@ const YearSelector = () => {
           background-color: ${borderGray};
         }
 
-        .select,
         .text-field {
           cursor: text;
           padding: 8px 15px;
@@ -117,6 +116,9 @@ const YearSelector = () => {
           color: #ffffff;
           background-color: ${backgroundGray};
           outline: none;
+          display: flex;
+          align-items: center;
+          width: 100%;
         }
 
         .text-field::placeholder {
@@ -152,7 +154,6 @@ const YearSelector = () => {
           top: 50%;
           right: 10px;
           transform: translateY(-50%);
-          width: 0;
           height: 0;
           border-style: solid;
           border-width: 6px 6px 0 6px;

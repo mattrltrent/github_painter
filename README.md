@@ -1,14 +1,10 @@
 ## GitHub Contribution Graph Painter - β
-**Add amazing art to your profile — in the present, or from years past!**
 
+**Add amazing art to your profile — in the present, or from years past!**
 
 [This web version](https://github-painter.vercel.app/) · [Mobile version](https://github.com/TalentedB/GitHub-Painter)
 
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_3.JPG" width="" height="" style="display: inline"/>
-
-### What everything does
-
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_1.jpg" width="" height="" style="display: inline"/>
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_4.jpg" width="" height="" style="display: inline"/>
 
 - [1]. The year you want to push your art to. Yes, GitHub allows commits in the past, making this possible.
 - [2]. The URL of your GitHub repo. This is provided to you when creating the repo. For example, for this repo, the URL is `https://github.com/mattrltrent/github_painter.git`. It's usually referred to as the upstream, or remote, origin.
@@ -26,7 +22,7 @@
 ### Troubleshooting
 
 - To delete the art, you can always delete the repository that the commits took place in. This is the easy way out. For more complex cases, refer to [this](https://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github) Stack Overflow question.
-- If you're not seeing the art appear, please toggle the "Private Contributions" setting on your GitHub profile. It seems to help things sync up.
+- If you're not seeing the art appear, please toggle the "Private Contributions" setting on your GitHub profile. It seems to help things sync up:
 
 
 <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_2.JPG" width="" height="" style="display: inline"/>

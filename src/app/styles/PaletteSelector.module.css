@@ -1,9 +1,10 @@
 .topRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+    grid-gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
   
   .buttonGroup {
     display: flex;
