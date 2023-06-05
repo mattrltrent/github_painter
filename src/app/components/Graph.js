@@ -76,89 +76,91 @@ const Graph = () => {
 
 
 
-return (
-  <div className="graph" ref={graphRef} onMouseUp={handleMouseUp}>
-    <div className="row-container">
-      {Array.from({ length: Math.ceil(commitData.grid.length / 7) }, (_, rowIndex) => (
-        <div className="column-container" key={rowIndex}>
-          {Array.from({ length: 7 }, (_, columnIndex) => {
-            const blockIndex = rowIndex * 7 + columnIndex;
-            const adjustedBlockIndex = blockIndex - offset;
+  return (
+    <div className="graph" ref={graphRef} onMouseUp={handleMouseUp}>
+      <div className="row-container">
+        {Array.from({ length: Math.ceil(commitData.grid.length / 7) }, (_, rowIndex) => (
+          <div className="column-container" key={rowIndex}>
+            {Array.from({ length: 7 }, (_, columnIndex) => {
+              const blockIndex = rowIndex * 7 + columnIndex;
+              const adjustedBlockIndex = blockIndex - offset;
 
-            if (adjustedBlockIndex < 0 || adjustedBlockIndex >= commitData.grid.length) {
-              return <div className="empty-spot" key={blockIndex} />;
-            }
+              if (adjustedBlockIndex < 0 || adjustedBlockIndex >= commitData.grid.length) {
+                return <div className="empty-spot" key={blockIndex} />;
+              }
 
-            const commitCount = commitData.grid[adjustedBlockIndex];
+              const commitCount = commitData.grid[adjustedBlockIndex];
 
-            return (
-              <div
-                className="square"
-                key={blockIndex}
-                title={`${commitCount} commits, ${adjustedBlockIndex}`}
-                onMouseDown={() => handleMouseDown(adjustedBlockIndex)}
-                style={{ backgroundColor: getColorForCommitLevel(commitCount) }}
-                onMouseEnter={() => handleMouseEnter(adjustedBlockIndex)}
-                onClick={() => handleClick(adjustedBlockIndex)}
-                onDragStart={handleDragStart}
-                draggable={false}
-              />
-            );
-          })}
-        </div>
-      ))}
+              return (
+                <div
+                  className="square"
+                  key={blockIndex}
+                  title={`${commitCount} commits, ${adjustedBlockIndex}`}
+                  onMouseDown={() => handleMouseDown(adjustedBlockIndex)}
+                  style={{ backgroundColor: getColorForCommitLevel(commitCount) }}
+                  onMouseEnter={() => handleMouseEnter(adjustedBlockIndex)}
+                  onClick={() => handleClick(adjustedBlockIndex)}
+                  onDragStart={handleDragStart}
+                  draggable={false}
+                />
+              );
+            })}
+          </div>
+        ))}
+      </div>
+
+      <style jsx>{`
+        .row-container {
+          display: flex;
+          flex-wrap: no-wrap;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .column-container {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          flex-basis: 0;
+          flex-grow: 1;
+        }
+
+        .square {
+          flex: 1 1;
+          // padding: 0;
+          transition: background-color 0.3s;
+          background-color: transparent;
+          display: flex;
+          cursor: crosshair;
+          justify-content: center;
+          align-items: center;
+          box-shadow: inset 0 0 0 1px #1c1c1c;
+          width: 100%;
+          aspect-ratio: 1/1; /* Set the aspect ratio to 1:1 */
+        }
+
+        .empty-spot {
+          flex: 1 0 0;
+          width: 100%;
+          height: 100%;
+          box-shadow: none;
+        }
+
+        .graph {
+          padding: 5px;
+          background-color: #1c1c1c;
+          border: 1px solid #616060;
+          overflow: auto;
+          shape-rendering: crispEdges;
+          box-shadow: 0 0 5px #616060;
+          cursor: crosshair;
+          flex-wrap: wrap;
+          width: 100%;
+          // aspect-ratio: 1/1;
+        }
+      `}</style>
     </div>
-
-    <style jsx>{`
-      .row-container {
-        display: flex;
-        flex-wrap: no-wrap;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .column-container {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;  */
-        flex-basis: 0; 
-        flex-grow: 1;
-      }
-      
-      .square {
-        flex: 1 0 0;
-        padding: 0;
-        transition: background-color 0.3s;
-        background-color: transparent;
-        display: flex;
-        cursor: crosshair;
-        justify-content: center;
-        align-items: center;
-        box-shadow: inset 0 0 0 1px #1c1c1c;
-        min-width: 1.5vw;
-        min-height: 1.5vw;
-      }
-      
-      .empty-spot {
-        flex: 1; 
-        box-shadow: none;
-      }
-
-      .graph {
-        padding: 5px;
-        background-color: #1c1c1c;
-        overflow: auto;
-        shape-rendering: crispEdges;
-        box-shadow: 0 0 70px rgba(0, 223, 162, 0.15);
-        cursor: crosshair;
-        flex-wrap: wrap;
-        height: 100%;
-      }
-    `}</style>
-  </div>
-);
-
-
+  );
 };
 
 const getColorForCommitLevel = (commitLevel) => {
