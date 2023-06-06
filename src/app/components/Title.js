@@ -11,7 +11,7 @@ const Title = () => {
       />
       <h1 className={styles.title}>GitHub Contribution Graph Painter</h1>
       <h2 className={styles.subtitle}>
-        Embrace your inner Picasso. Made in one day, so use at your own risk. Still in testing.
+        Embrace your inner Picasso. Made in one day, so use at your own risk.
       </h2>
     </>
   );
