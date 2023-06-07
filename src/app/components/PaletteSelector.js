@@ -39,9 +39,9 @@ const PaletteSelector = () => {
         <div className={styles.between} />
         <TextButton className={styles.spacer} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
         <div className={styles.between} />
-        <TextButton text="Example #1" onClick={() => open("https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31")} />
+        <TextButton text="Example #1" onClick={() => open("https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan")} />
         <div className={styles.between} />
-        <TextButton text="Example #2" onClick={() => open("https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31")} />
+        <TextButton text="Example #2" onClick={() => open("https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January-,Jan,-February")} />
       </div>
       <div className="palette-selector">
         <PaletteButton

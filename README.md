@@ -1,9 +1,9 @@
 ## GitHub Contribution Graph Painter — add a unique flair to your profile! 🎨
 
-**[Live profile example #1:](https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31)**
+**[Live profile example #1:](https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan)**
 <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_1.JPG" width="" height="" style="display: inline"/>
 
-**[Live profile example #2:](https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31)**
+**[Live profile example #2:](https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January-,Jan,-February)**
 <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_2.JPG" width="" height="" style="display: inline"/>
 
 **[Try the editor yourself:](https://github-painter.vercel.app/)**
