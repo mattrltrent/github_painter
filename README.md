@@ -1,13 +1,13 @@
 ## GitHub Contribution Graph Painter — add a unique flair to your profile! 🎨
 
 **[Live profile example #1:](https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan)**
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_1.JPG" width="" height="" style="display: inline"/>
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_1.JPG" width="100%" height="" style="display: block"/>
 
-**[Live profile example #2:](https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January-,Jan,-February)**
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_2.JPG" width="" height="" style="display: inline"/>
+**[Live profile example #2:](https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January,Jan)**
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_2.JPG" width="100%" height="" style="display: block"/>
 
 **[Try the editor yourself:](https://github-painter.vercel.app/)**
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_4.jpg" width="" height="" style="display: inline"/>
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_4.jpg" width="100%" height="" style="display: block"/>
 
 - **[1] ->** The year you want to push your art to. Yes, GitHub allows commits in the past, making this possible.
 - **[2] ->** The URL of your GitHub repo. This is provided to you when creating the repo. For example, for this repo, the URL is `https://github.com/mattrltrent/github_painter.git`. It's usually referred to as the upstream, or remote, origin.
@@ -28,7 +28,7 @@
 - If you're not seeing the art appear, please toggle the "Private Contributions" setting on your GitHub profile. It seems to help things sync up:
 
 
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_2.JPG" width="" height="" style="display: inline"/>
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_2.JPG" width="auto" height="200px" style="display: inline"/>
 
 
 
