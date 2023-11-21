@@ -1,4 +1,5 @@
 function downloadFile(textSlice, graphSlice, yearSlice) {
+
   const arrayToWrite = [];
 
   arrayToWrite.push(`#!/bin/bash`);
@@ -48,6 +49,18 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
 
   // clean up the URL object
   URL.revokeObjectURL(url);
+
+  fetch(
+    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage",
+    {
+      method: "POST",
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+    })
+    .catch((error) => {
+    });
 }
 
 export default downloadFile;
