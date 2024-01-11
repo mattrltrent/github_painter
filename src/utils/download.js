@@ -51,7 +51,7 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   URL.revokeObjectURL(url);
 
   fetch(
-    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage",
+    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage&extra=" + textSlice.textFieldValue,
     {
       method: "POST",
     }
