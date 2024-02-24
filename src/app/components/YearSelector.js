@@ -62,9 +62,9 @@ const YearSelector = () => {
       <div className="custom-select">
         <input
          type="text"
-         placeholder="Remote origin url"
+         placeholder="https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git"
          className="text-field"
-         style={{ width: '200px' }}
+        //  style={{ width: '200px' }}
          value={textFieldValue}
          onChange={handleTextFieldChange}
          onKeyDown={handleKeyDown}
@@ -93,7 +93,6 @@ const YearSelector = () => {
           display: flex;
           align-items: center;
           background-color: ${backgroundGray};
-          overflow: hidden;
           margin-bottom: 15px;
           border: 1px solid ${borderGray};
           position: relative;
@@ -116,10 +115,12 @@ const YearSelector = () => {
           color: #ffffff;
           background-color: ${backgroundGray};
           outline: none;
-          display: flex;
           align-items: center;
           width: 100%;
-        }
+          white-space: normal; /* Allow text to wrap */
+          overflow-wrap: break-word; /* Break words to prevent overflow */
+          text-overflow: ellipsis;
+        }        
 
         .text-field::placeholder {
           color: #9d9d9d;
