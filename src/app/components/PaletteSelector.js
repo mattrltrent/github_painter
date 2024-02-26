@@ -37,9 +37,11 @@ const PaletteSelector = () => {
         <div className={styles.between} />
         <TextButton text="Instructions & repo" onClick={() => open("https://github.com/mattrltrent/github_painter#github-contribution-graph-painter---%CE%B2")} />
         <div className={styles.between} />
-        <TextButton text="Example #1" onClick={() => open("https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan")} />
+        <TextButton text="Example downloaded script" onClick={() => open("https://github.com/mattrltrent/github_painter/blob/main/example_script.sh")} />
         <div className={styles.between} />
-        <TextButton text="Example #2" onClick={() => open("https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January-,Jan,-February")} />
+        <TextButton text="GitHub example #1" onClick={() => open("https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan")} />
+        <div className={styles.between} />
+        <TextButton text="GitHub example #2" onClick={() => open("https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January-,Jan,-February")} />
         <div className={styles.between} />
         <TextButton highlighted className={styles.star} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
       </div>

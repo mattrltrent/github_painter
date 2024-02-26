@@ -19,7 +19,7 @@ const Title = () => {
       />
       <h1 className={styles.title}>GitHub Contribution Graph Painter</h1>
       <h2 className={styles.subtitle}>
-        <a className={styles.star} target='_blank' href='https://github.com/mattrltrent/github_painter'>Starring the project on GitHub ⭐️</a> means the world to me.
+        <a className={styles.star} target='_blank' href='https://github.com/mattrltrent/github_painter'>Starring the project on GitHub ⭐️</a> means the world to me. Built in one evening! 🌌
       </h2>
     </>
   );
