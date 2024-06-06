@@ -25,7 +25,7 @@ const Title = () => {
       <ol className={[styles.bottomPadding].join(" ")}>
         <li className={styles.light}>1. Enter your GitHub repository URL <b>exactly how the hint says</b> &#38; select year</li>
         <li className={styles.light}>2. Paint the graph</li>
-        <li className={styles.light}>3. Click <span className={styles.highlight}>"Download script -&gt;"</span></li>
+        <li className={styles.light}>3. Click <span className={styles.highlight}>&quot;Download script -&gt;&quot;</span></li>
         <li className={styles.light}>4. Go to the directory in your terminal where you downloaded the script</li>
         <li className={styles.light}>5. Run <span className={styles.code}>chmod 701 github_painter.sh ; sudo ./github_painter.sh</span></li>
       </ol>
