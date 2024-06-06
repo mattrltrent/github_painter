@@ -7,7 +7,7 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   arrayToWrite.push(`mkdir github_painter`);
   arrayToWrite.push(`cd github_painter`);
   arrayToWrite.push(`git init`);
-  arrayToWrite.push(`git remote add origin ${textSlice.textFieldValue}`); 
+  arrayToWrite.push(`git remote add origin ${textSlice.textFieldValue}.git`); 
   arrayToWrite.push(`git pull origin main`);
   arrayToWrite.push(`touch foobar.txt`);
 
