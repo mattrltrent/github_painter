@@ -60,15 +60,16 @@ const YearSelector = () => {
   return (
     <div className="year-selector">
       <div className="custom-select">
-        <input
-         type="text"
-         placeholder="https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git"
-         className="text-field"
-        //  style={{ width: '200px' }}
-         value={textFieldValue}
-         onChange={handleTextFieldChange}
-         onKeyDown={handleKeyDown}
-        />
+      <input
+      type="text"
+      placeholder="Enter Repo URL"
+      className="text-field"
+      value={textFieldValue}
+      onChange={handleTextFieldChange}
+      onKeyDown={handleKeyDown}
+      onFocus={(e) => e.target.placeholder = ""}
+      onBlur={(e) => e.target.placeholder = "Enter Repo URL"} // Optional: To restore placeholder on blur
+    />
         <div className="separator"></div>
         <select
           id="year"
@@ -78,13 +79,13 @@ const YearSelector = () => {
         >
           <option value="">Select year</option>
           {renderYearOptions()}
-        </select>
+        </select> 
       </div>
 
       <style jsx>{`
         .year-selector {
           display: flex;
-          align-items: center;
+          align-items: left;
           gap: 10px;
           margin-top: 15px;
         }
@@ -110,12 +111,12 @@ const YearSelector = () => {
           cursor: text;
           padding: 8px 15px;
           border: none;
-          appearance: none;
+          appearance: none; 
           text-align: center;
           color: #ffffff;
           background-color: ${backgroundGray};
           outline: none;
-          align-items: center;
+          align-items: center; 
           width: 100%;
           white-space: normal; /* Allow text to wrap */
           overflow-wrap: break-word; /* Break words to prevent overflow */

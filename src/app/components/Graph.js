@@ -73,7 +73,8 @@ const Graph = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  },   );
+//}, []);
 
 
 

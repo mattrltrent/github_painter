@@ -1,55 +1,70 @@
 .topRow {
-    display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
-    grid-gap: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+  grid-gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
-  
-  .buttonGroup {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .between {
-    margin-left: 30px !important;
-  }
-  
-  .paletteSelector {
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-    justify-content: left;
-    margin-bottom: 10px;
-  }
-  
-  .paletteOption {
-    margin-right: 5px;
-    padding: 5px 10px;
-    background-color: #030100;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .paletteOption:focus {
-    box-shadow: 0 0 0 2px #c6e48b;
-  }
-  
-  .selected {
-    background-color: #c6e48b;
-  }
-  
-  .clearAllButton {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #030100;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-  }
 
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center; 
+  }
+}
+
+.between {
+  margin-left: 30px !important;
+} 
+
+.paletteSelector {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .paletteSelector {
+    flex-direction: column;
+  }
+}
+
+.paletteOption {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #030100;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.paletteOption:focus {
+  box-shadow: 0 0 0 2px #c6e48b;
+}
+
+.selected {
+  background-color: #c6e48b;
+}
+
+.clearAllButton {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #030100;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+}

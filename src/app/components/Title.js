@@ -13,17 +13,18 @@ const Title = () => {
         <meta name="author" content="Matthew Trent" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <link
+      {/* <link
         href="https://fonts.googleapis.com/css2?family=inter&display=swap"
         rel="stylesheet"
-      />
+      /> */} 
       <h1 className={styles.h1}>GitHub Painter</h1>
-
+ 
       {/* <h1 className={styles.title}>GitHub Contribution Graph Painter</h1> */}
       {/* <h2 className={styles.subtitle}><a className={styles.star} target='_blank' href='https://github.com/mattrltrent/github_painter'>Starring ⭐️</a> the project on GitHub means the world to me. Built in one evening! 🌌 */}
       {/* </h2> */}
       <ol className={[styles.bottomPadding].join(" ")}>
-        <li className={styles.light}>1. Enter your GitHub repository URL <b>exactly how the hint says</b> &#38; select year</li>
+        <li className={styles.light}>1. Enter your GitHub repository URL like <span className={styles.code2}>https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME</span> &#38; select year</li>
+
         <li className={styles.light}>2. Paint the graph</li>
         <li className={styles.light}>3. Click <span className={styles.highlight}>&quot;Download script -&gt;&quot;</span></li>
         <li className={styles.light}>4. Go to the directory in your terminal where you downloaded the script</li>
@@ -34,3 +35,4 @@ const Title = () => {
 };
 
 export default Title;
+ 

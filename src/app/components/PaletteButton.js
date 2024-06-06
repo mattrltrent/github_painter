@@ -29,7 +29,7 @@ const PaletteButton = ({ color, selected, onClick, text }) => {
 
   return (
     <div className={styles.column}>
-      <link href="https://fonts.googleapis.com/css2?family=inter&display=swap" rel="stylesheet" />
+      {/* <link href="https://fonts.googleapis.com/css2?family=inter&display=swap" rel="stylesheet" /> */}
       <button
         ref={buttonRef}
         className={`${styles['palette-button']} ${selected ? styles.selected : ''}`}
