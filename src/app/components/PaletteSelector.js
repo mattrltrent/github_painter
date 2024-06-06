@@ -82,7 +82,7 @@ const PaletteSelector = () => {
         .palette-selector {
           display: flex;
           flex-wrap: wrap; 
-          justify-content: flex-start; 
+          justify-content: center; 
           margin-top: 5px;
           margin-bottom: 10px;
         }
