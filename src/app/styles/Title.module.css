@@ -1,6 +1,6 @@
 .title {
     font-family: 'inter', sans-serif;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: 48px;
     color: #ffffff;
@@ -22,4 +22,36 @@
 .star:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.light {
+  color: #bbbbbb;
+}
+
+.bottomPadding {
+  padding-bottom: 20px;
+}
+
+.h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  padding-bottom: 5px;
+}
+
+.highlight {
+  color: #39D353;
+}
+
+.code {
+  font-family: 'inter', sans-serif;
+  font-size: 16px;
+  color: #bbbbbb;
+  background-color: #3a3a3a;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: .5px;
+  padding-bottom: 1.5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }

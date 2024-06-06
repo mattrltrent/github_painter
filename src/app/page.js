@@ -8,19 +8,20 @@ import Title from "./components/Title";
 import YearSelector from "./components/YearSelector";
 
 export default function Home() {
-  useEffect(() => {
-    fetch(
-      "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-view",
-      {
-        method: "POST",
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-      })
-      .catch((error) => {
-      });
-  }, []); 
+  // todo: fix
+  // useEffect(() => {
+  //   fetch(
+  //     "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-view",
+  //     {
+  //       method: "POST",
+  //     }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //     })
+  //     .catch((error) => {
+  //     });
+  // }, []); 
 
   return (
     <main className={styles.main}>

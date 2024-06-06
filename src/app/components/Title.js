@@ -17,10 +17,18 @@ const Title = () => {
         href="https://fonts.googleapis.com/css2?family=inter&display=swap"
         rel="stylesheet"
       />
-      <h1 className={styles.title}>GitHub Contribution Graph Painter</h1>
-      <h2 className={styles.subtitle}>
-        <a className={styles.star} target='_blank' href='https://github.com/mattrltrent/github_painter'>Starring the project on GitHub ⭐️</a> means the world to me. Built in one evening! 🌌
-      </h2>
+      <h1 className={styles.h1}>GitHub Painter</h1>
+
+      {/* <h1 className={styles.title}>GitHub Contribution Graph Painter</h1> */}
+      {/* <h2 className={styles.subtitle}><a className={styles.star} target='_blank' href='https://github.com/mattrltrent/github_painter'>Starring ⭐️</a> the project on GitHub means the world to me. Built in one evening! 🌌 */}
+      {/* </h2> */}
+      <ol className={[styles.bottomPadding].join(" ")}>
+        <li className={styles.light}>1. Enter your GitHub repository URL <b>exactly how the hint says</b> &#38; select year</li>
+        <li className={styles.light}>2. Paint the graph</li>
+        <li className={styles.light}>3. Click <span className={styles.highlight}>"Download script -&gt;"</span></li>
+        <li className={styles.light}>4. Go to the directory in your terminal where you downloaded the script</li>
+        <li className={styles.light}>5. Run <span className={styles.code}>chmod 701 github_painter.sh ; sudo ./github_painter.sh</span></li>
+      </ol>
     </>
   );
 };
