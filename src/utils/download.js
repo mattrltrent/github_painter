@@ -1,22 +1,58 @@
-function downloadFile(textSlice, graphSlice, yearSlice) {
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
+function fixGitUrl(url) {
+  if (!url) return '';
+  
+  // Check and add prefix if missing
+  if (!url.match(/^(https:\/\/|git@)/)) {
+    url = 'https://' + url;
+  }
+  
+  // Further refine the URL to match the correct pattern
+  const pattern = /^(https:\/\/|git@)github\.com[/:]([^/]+\/[^/]+?)(\.git)?$/;
+  const match = url.match(pattern);
+
+  if (match) {
+    const prefix = match[1];
+    const userRepo = match[2];
+    return `${prefix}github.com/${userRepo}.git`;
+  } else {
+    return null;
+  }
+}
+
+function downloadFile(textSlice, graphSlice, yearSlice) {
   const arrayToWrite = [];
+
+  const fixedUrl = fixGitUrl(textSlice.textFieldValue);
+  if (!fixedUrl) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Invalid GitHub URL',
+      backgroundColor: '#ff4444', // Customize background color to red
+      timeout: 5000,
+      position: 'topRight',
+    });
+    console.error('Invalid GitHub URL');
+    return;
+  }
 
   arrayToWrite.push(`#!/bin/bash`);
   arrayToWrite.push("echo 'GENERATING ART...'");
   arrayToWrite.push(`mkdir github_painter`);
   arrayToWrite.push(`cd github_painter`);
   arrayToWrite.push(`git init`);
-  arrayToWrite.push(`git remote add origin ${textSlice.textFieldValue}.git`); 
+  arrayToWrite.push(`git remote add origin ${fixedUrl}`); 
   arrayToWrite.push(`git pull origin main`);
   arrayToWrite.push(`touch foobar.txt`);
 
   function commitXTimes(x, date) {
     for (let i = 0; i < x; i++) {
       // create a commit on `date`
-      arrayToWrite.push(`echo '${date} -> (${i})' >> foobar.txt`);
+      arrayToWrite.push(`echo '${date.toISOString()} -> (${i})' >> foobar.txt`);
       arrayToWrite.push(`git add foobar.txt`);
-      arrayToWrite.push(`git commit --date='${date}' -m '${date}'`);
+      arrayToWrite.push(`git commit --date='${date.toISOString()}' -m '${date.toISOString()}'`);
     }
   }
   
@@ -27,7 +63,7 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
     commitXTimes(graphSlice.grid[i], date);
   }
   // to increase the number of commits modify this line 
-  // for example:commitXTimes(graphSlice.grid[i]*commitXTimes(graphSlice.grid[i], date); would square the initial number of commits
+  // for example:commitXTimes(graphSlice.grid[i]*commitXTimes(graphSlice.grid[i], date); would square the     initial number of commits
   // for example:commitXTimes(graphSlice.grid[i]+2, date); would add 2 to the initial number of commits
   // modify accoring to your needs
   // initial commits would be
@@ -40,27 +76,27 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   arrayToWrite.push("git push origin main --force");
   // yay, done!
   arrayToWrite.push("echo 'DONE!'");
-
   // create a Blob object with the file content
   const fileContent = arrayToWrite.join('\n');
-  const blob = new Blob([fileContent], { type: 'text/plain' });
 
+  const blob = new Blob([fileContent], { type: 'text/plain' });
   // create a URL for the Blob object
   const url = URL.createObjectURL(blob);
 
-  // create a link element
+  // create a temporary anchor element
   const link = document.createElement('a');
   link.href = url;
   link.download = 'github_painter.sh'; // Set the desired file name
 
-  // simulate a click event to trigger the download
+  // trigger a click event to initiate the download
   link.click();
 
-  // clean up the URL object
+  // clean up the URL object and remove the anchor element
   URL.revokeObjectURL(url);
+  link.remove();
 
   fetch(
-    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage&extra=" + textSlice.textFieldValue,
+    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage&extra=" + fixedUrl,
     {
       method: "POST",
     }
