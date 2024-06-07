@@ -25,7 +25,7 @@ function fixGitUrl(url) {
   
     const fixedUrl = fixGitUrl(textSlice.textFieldValue);
     if (!fixedUrl) {
-      alert('Please enter correct GitHub URL'); // Display alert for invalid URL
+      alert('Please enter correct GitHub repository URL'); // Display alert for invalid URL
       console.error('Invalid GitHub URL');
       return;
     }
