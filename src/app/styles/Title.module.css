@@ -25,7 +25,7 @@ opacity: 0.5;
 }
 
 .light {
-color: #bbbbbb;
+  color: #bbbbbb;
 }
 
 .bottomPadding {
@@ -45,7 +45,6 @@ color: #39D353;
 
 .code {
 font-family: 'inter', sans-serif;
-font-size: 11px;
 color: #bbbbbb;
 background-color: #3a3a3a;
 padding-left: 4px;
@@ -54,23 +53,8 @@ padding-top: .5px;
 padding-bottom: 1.5px;
 border-radius: 5px;
 margin-bottom: 20px;
+/* wrap even if it's in the middle of a word */
+word-break: break-all;
 }
 
-.code2 {
-font-family: 'inter', sans-serif;
-font-size: 10px;
-color: #bbbbbb;
-background-color: #3a3a3a;
-padding-left: 4px;
-padding-right: 4px;
-padding-top: .5px;
-padding-bottom: 1.5px;
-border-radius: 5px; 
-margin-bottom: 20px;
-}
 
-@media (min-width: 768px) {
-.code2,.code{
-  font-size: 16px;
-}
-} 
