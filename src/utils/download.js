@@ -42,9 +42,9 @@ function fixGitUrl(url) {
     function commitXTimes(x, date) {
       for (let i = 0; i < x; i++) {
         // create a commit on `date`
-        arrayToWrite.push(`echo '${date.toISOString()} -> (${i})' >> foobar.txt`);
+        arrayToWrite.push(`echo '${date} -> (${i})' >> foobar.txt`);
         arrayToWrite.push(`git add foobar.txt`);
-        arrayToWrite.push(`git commit --date='${date.toISOString()}' -m '${date.toISOString()}'`);
+        arrayToWrite.push(`git commit --date='${date}' -m '${date}'`);
       }
     }
     
