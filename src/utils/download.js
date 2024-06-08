@@ -54,6 +54,16 @@ function fixGitUrl(url) {
       // create `graphSlice.grid[i]` commits on `date`
       commitXTimes(graphSlice.grid[i], date);
     }
+   // to increase the number of commits modify this line 
+   // for example:commitXTimes(graphSlice.grid[i]*commitXTimes(graphSlice.grid[i], date); would square the initial number of commits
+   // for example:commitXTimes(graphSlice.grid[i]+2, date); would add 2 to the initial number of commits
+   // modify accoring to your needs
+   // initial commits would be
+   // space = 0
+   // a(green1 = '#0D4429';)=1
+   // s(green2 = '#016C31';)=2
+   // d(green3 = '#26A641';)=3
+   // f(green4 = '#39D353';)=4
     
     arrayToWrite.push("git push origin main --force");
     // yay, done!
