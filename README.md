@@ -1,13 +1,10 @@
 ## GitHub Contribution Graph Painter — add a unique flair to your profile! 🎨
 
-**[Live profile example #1:](https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan)**
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_1.JPG" width="100%" height="" style="display: block"/>
-
-**[Live profile example #2:](https://github.com/TalentedB?tab=overview&from=2019-12-01&to=2019-12-31#:~:text=January,Jan)**
-<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_2.JPG" width="100%" height="" style="display: block"/>
-
 **[Try the editor yourself:](https://github-painter.vercel.app/)**
 <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_4.jpg" width="100%" height="" style="display: block"/>
+
+**[Live profile example #1:](https://github.com/mattrltrent?tab=overview&from=2018-12-01&to=2018-12-31#:~:text=January,Jan)**
+<img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/ex_1.JPG" width="100%" height="" style="display: block"/>
 
 - **[1] ->** The year you want to push your art to. Yes, GitHub allows commits in the past, making this possible.
 - **[2] ->** The URL of your GitHub repo. This is provided to you when creating the repo. For example, for this repo, the URL is `https://github.com/mattrltrent/github_painter.git`. It's usually referred to as the upstream, or remote, origin.
@@ -36,8 +33,6 @@
 ### Notes
 
 - Use at your own risk, because I feel like committing a bunch of times could mess something up if used incorrectly. So, be careful, know what you're doing, and check the outputted `github_painter.sh` script before using it.
-
-- Here's the work-in-progress [mobile version repo](https://github.com/TalentedB/GitHub-Painter).
 
 ### Feel free to create Issues or PRs!
 
