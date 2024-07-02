@@ -22,11 +22,28 @@ export default function Home() {
       });
   }, []); 
 
+  function bannerClick() {
+    fetch(
+      "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=hackathon-banner-from-painter-clicked",
+      {
+        method: "POST",
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+      })
+      .catch((error) => {
+      });
+    }
+
   return (
     <div className={styles.all}>
-      <div className={styles.banner}>
-        <a target="_blank" href="https://matthewtrent.me/covehack/summer-2024"><b>I&apos;m hosting a free virtual HACKATHON August 17/18, click to join and RSVP 🚀</b></a>
-
+      <div  className={styles.banner}>
+        <a  onClick={(e) => { 
+          e.preventDefault();
+          bannerClick(); 
+          window.open('https://matthewtrent.me/covehack/summer-2024', '_blank'); 
+        }}  target="_blank" href='javascript:;'><b>I&apos;m hosting a free virtual HACKATHON August 17/18, click to join and RSVP 🚀</b></a>
       </div>
     <main className={styles.main}>
       <Title />
