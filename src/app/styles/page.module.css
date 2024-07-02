@@ -1,10 +1,21 @@
+.banner {
+  background-color: #FFD700;
+  text-align: center;
+  padding: 10px 20px;
+  color: #333333;
+}
+
+.all {
+  min-height: 100vh;
+  background-color: #1b1b1b;
+}
+
 .main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 6rem;
-  min-height: 100vh;
   background-color: #1b1b1b;
 }
 

@@ -23,11 +23,17 @@ export default function Home() {
   }, []); 
 
   return (
+    <div className={styles.all}>
+      <div className={styles.banner}>
+        <a target="_blank" href="https://matthewtrent.me/covehack/summer-2024"><b>I&apos;m hosting a free virtual HACKATHON August 17/18, click to join and RSVP 🚀</b></a>
+
+      </div>
     <main className={styles.main}>
       <Title />
       <YearSelector />
       <Graph />
       <PaletteSelector />
     </main>
+    </div>
   );
 }
