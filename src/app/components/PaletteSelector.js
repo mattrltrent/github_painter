@@ -41,7 +41,7 @@ const PaletteSelector = () => {
         <div className={styles.between} />
         <TextButton  text="GitHub Issues" onClick={() => open("https://github.com/mattrltrent/github_painter/issues")} />
         <div className={styles.between} />
-        <TextButton star text="Star on GitHub" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
+        <TextButton star text="Star on GitHub (I'm trying to beat my friend)" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
         <div className={styles.between} />
         <TextButton highlighted className={styles.star} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
       </div>
