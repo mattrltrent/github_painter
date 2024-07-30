@@ -62,7 +62,7 @@ const YearSelector = () => {
       <div className="custom-select">
       <input
       type="text"
-      placeholder="Enter Repo URL"
+      placeholder="Enter repo URL"
       className="text-field"
       value={textFieldValue}
       onChange={handleTextFieldChange}
