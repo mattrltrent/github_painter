@@ -44,7 +44,7 @@ const YearSelector = () => {
   const renderYearOptions = () => {
     const currentYear = new Date().getFullYear();
     const startYear = currentYear - 15; // specify the range of years (aka, the last 10 years)
-    const endYear = currentYear;
+    const endYear = currentYear + 2;
 
     const options = [];
     for (let year = startYear; year <= endYear; year++) {
