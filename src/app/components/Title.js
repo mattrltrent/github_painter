@@ -12,6 +12,7 @@ const Title = () => {
         <meta name="keywords" content="GitHub, Contribution, Graph, Painter, Customize, Customize GitHub, GitHub Painter, GitHub Contribution Graph Painter" />
         <meta name="author" content="Matthew Trent" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="google-adsense-account" content="ca-pub-2826294656662096"></meta>
       </Head>
       {/* <link
         href="https://fonts.googleapis.com/css2?family=inter&display=swap"
