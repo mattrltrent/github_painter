@@ -6,6 +6,7 @@ import Graph from "./components/Graph";
 import PaletteSelector from "./components/PaletteSelector";
 import Title from "./components/Title";
 import YearSelector from "./components/YearSelector";
+import Head from "next/head";
 
 export default function Home() {
   useEffect(() => {
@@ -16,11 +17,9 @@ export default function Home() {
       }
     )
       .then((response) => response.json())
-      .then((data) => {
-      })
-      .catch((error) => {
-      });
-  }, []); 
+      .then((data) => {})
+      .catch((error) => {});
+  }, []);
 
   function bannerClick() {
     fetch(
@@ -30,27 +29,52 @@ export default function Home() {
       }
     )
       .then((response) => response.json())
-      .then((data) => {
-      })
-      .catch((error) => {
-      });
-    }
+      .then((data) => {})
+      .catch((error) => {});
+  }
 
   return (
-    <div className={styles.all}>
-      <div  className={styles.banner}>
-        <a  onClick={(e) => { 
-          e.preventDefault();
-          bannerClick(); 
-          window.open('https://matthewtrent.me/covehack/summer-2024', '_blank'); 
-        }}  target="_blank" href='javascript:;'><b>I&apos;m hosting a free virtual HACKATHON August 17/18, click to join and RSVP 🚀</b></a>
+    (
+      <Head>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-2826294656662096"
+        ></meta>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2826294656662096"
+          crossorigin="anonymous"
+        ></script>
+      </Head>
+    ),
+    (
+      <div className={styles.all}>
+        <div className={styles.banner}>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              bannerClick();
+              window.open(
+                "https://matthewtrent.me/covehack/summer-2024",
+                "_blank"
+              );
+            }}
+            target="_blank"
+            href="javascript:;"
+          >
+            <b>
+              I&apos;m hosting a free virtual HACKATHON August 17/18, click to
+              join and RSVP 🚀
+            </b>
+          </a>
+        </div>
+        <main className={styles.main}>
+          <Title />
+          <YearSelector />
+          <Graph />
+          <PaletteSelector />
+        </main>
       </div>
-    <main className={styles.main}>
-      <Title />
-      <YearSelector />
-      <Graph />
-      <PaletteSelector />
-    </main>
-    </div>
+    )
   );
 }
