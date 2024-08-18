@@ -54,17 +54,17 @@ export default function Home() {
             onClick={(e) => {
               e.preventDefault();
               bannerClick();
-              window.open(
-                "https://matthewtrent.me/covehack/summer-2024",
-                "_blank"
-              );
+                window.open("mailto:me@matthewtrent.me");
+              // window.open(
+              //   "https://matthewtrent.me/covehack/summer-2024",
+              //   "_blank"
+              // );
             }}
             target="_blank"
             href="javascript:;"
           >
             <b>
-              I&apos;m hosting a free virtual HACKATHON August 17/18, click to
-              join and RSVP 🚀
+             If the ads are too invasive, click here to let me know (I just added them)
             </b>
           </a>
         </div>
