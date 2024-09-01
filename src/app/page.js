@@ -64,7 +64,7 @@ export default function Home() {
             href="javascript:;"
           >
             <b>
-             If the ads are too invasive, click here to let me know (I just added them)
+             Let me know if something needs to be fixed by clicking here!
             </b>
           </a>
         </div>
