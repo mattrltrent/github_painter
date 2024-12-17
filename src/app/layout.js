@@ -1,21 +1,25 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { Providers } from './../redux/provider'
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { Providers } from "./../redux/provider";
+import Head from "next/head";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'GitHub Painter',
-  description: 'Embrace your inner Picasso.',
+  title: "GitHub Painter | Free Tool",
+  description: "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href={metadata.icons.icon} />
         <meta
           name="google-adsense-account"
           content="ca-pub-2826294656662096"
@@ -23,12 +27,14 @@ export default function RootLayout({ children }) {
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2826294656662096"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
-      </head>
-      <Providers>
-        <body className={inter.className}>{children}</body>
-      </Providers>
-    </html>
-  )
+      </Head>
+      <html lang="en">
+        <body>
+          <Providers>{children}</Providers>
+        </body>
+      </html>
+    </>
+  );
 }
