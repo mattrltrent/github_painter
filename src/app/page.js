@@ -49,22 +49,14 @@ export default function Home() {
     ),
     (
       <div className={styles.all}>
-        <div className={styles.banner}>
-          <a
-            onClick={(e) => {
-              e.preventDefault();
-              bannerClick();
-                window.open("mailto:me@matthewtrent.me");
-              // window.open(
-              //   "https://matthewtrent.me/covehack/summer-2024",
-              //   "_blank"
-              // );
-            }}
+        <div >
+          <a 
+            className={styles.banner}
             target="_blank"
-            href="javascript:;"
+            href="https://matthewtrent.me/resume.pdf"
           >
             <b>
-             Let me know if something needs to be fixed by clicking here!
+             Looking for a Software Engineering Intern? Check out my resume!
             </b>
           </a>
         </div>
