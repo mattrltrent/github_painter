@@ -23,7 +23,7 @@
 
     <img src="https://raw.githubusercontent.com/mattrltrent/github_painter/main/github/demo_2.JPG" width="auto" height="200px" style="display: inline"/>
 
-- Check out [this GitHub Issue](https://github.com/mattrltrent/github_painter/issues/9) that outlines some good troubleshooting.
+- Check out [this GitHub Issue](https://github.com/mattrltrent/github_painter/issues/9) that outlines some good troubleshooting if the script runs, but your contributions aren't showing up.
 
 
 ### Notes
