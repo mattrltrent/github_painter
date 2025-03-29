@@ -19,9 +19,155 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+}
+
+/* ──────────────── GRAPH ──────────────── */
+
+.row-container {
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.square {
+  flex: 1 1;
+  transition: background-color 0.3s;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px #0f0f0f; /* was ${backgroundBlack} */
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.empty-spot {
+  flex: 1 0 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+}
+
+.graph {
+  padding: 5px;
+  background-color: #0f0f0f; /* was ${backgroundBlack} */
+  border: 1px solid #444444; /* was ${borderGray} */
+  overflow: auto;
+  shape-rendering: crispEdges;
+  box-shadow: 0 0 5px #444444; /* was ${borderGray} */
+  flex-wrap: wrap;
+  width: 100%;
+  cursor: crosshair;
+}
+
+/* ──────────── PALETTE SELECTOR ──────────── */
+
+.palette-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* ──────────── YEAR + REPO BAR ──────────── */
+
+.year-selector {
+  display: flex;
+  align-items: left;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.custom-select {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e; /* was ${backgroundGray} */
+  margin-bottom: 15px;
+  border: 1px solid #444444; /* was ${borderGray} */
+  position: relative;
+  box-shadow: 0 0 5px #444444; /* was ${borderGray} */
+  width: 100%;
+}
+
+.separator {
+  width: 1px;
+  height: 80%;
+  background-color: #444444; /* was ${borderGray} */
+}
+
+.text-field {
+  cursor: text;
+  padding: 8px 15px;
+  border: none;
+  appearance: none;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1e1e1e; /* was ${backgroundGray} */
+  outline: none;
+  align-items: center;
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.text-field::placeholder {
+  color: #9d9d9d;
+}
+
+.custom-select select {
+  cursor: pointer;
+  background-color: #1e1e1e; /* was ${backgroundGray} */
+  border-radius: 0;
+  border: none;
+  color: #ffffff;
+  text-align-last: center;
+  padding-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.custom-select select::-ms-expand {
+  display: none;
+}
+
+.custom-select select:focus {
+  background-color: #1e1e1e; /* was ${backgroundGray} */
+  outline: none;
+}
+
+.custom-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: #ffffff transparent transparent transparent;
+  pointer-events: none;
+}
+
+.text-field,
+select {
+  flex: 1;
+  height: auto;
 }
