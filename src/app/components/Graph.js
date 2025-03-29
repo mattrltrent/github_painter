@@ -111,56 +111,6 @@ const Graph = () => {
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        .row-container {
-          display: flex;
-          flex-wrap: no-wrap;
-          justify-content: center;
-          overflow: hidden;
-        }
-
-        .column-container {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          flex-basis: 0;
-          flex-grow: 1;
-        }
-
-        .square {
-          flex: 1 1;
-          // padding: 0;
-          transition: background-color 0.3s;
-          background-color: transparent;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-shadow: inset 0 0 0 1px ${backgroundBlack};
-          width: 100%;
-          aspect-ratio: 1/1; 
-        }
-
-        .empty-spot {
-          flex: 1 0 0;
-          width: 100%;
-          height: 100%;
-          box-shadow: none;
-        }
-
-        .graph {
-          padding: 5px;
-          background-color: ${backgroundBlack};
-          border: 1px solid ${borderGray};
-          overflow: auto;
-          shape-rendering: crispEdges;
-          box-shadow: 0 0 5px ${borderGray};
-          flex-wrap: wrap;
-          width: 100%;
-          // aspect-ratio: 1/1;
-          cursor: crosshair;
-        }
-      `}</style>
     </div>
   );
 };
