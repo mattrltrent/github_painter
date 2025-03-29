@@ -1,19 +1,36 @@
+"use client";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "./../redux/provider";
 import Head from "next/head";
+import { useEffect } from "react"; // for keyboard event
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "GitHub Painter | Free Contribution Graph Customization Tool",
-  description: "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
+  description:
+    "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
   icons: {
     icon: "/favicon.ico",
   },
 };
 
 export default function RootLayout({ children }) {
+  // add global spacebar listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        console.log("Eraser tool selected via spacebar");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
       <Head>
