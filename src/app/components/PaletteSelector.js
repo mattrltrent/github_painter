@@ -77,16 +77,6 @@ const PaletteSelector = () => {
           text={"f"}
         />
       </div>
-
-      <style jsx>{`
-        .palette-selector {
-          display: flex;
-          flex-wrap: wrap; 
-          justify-content: center; 
-          margin-top: 5px;
-          margin-bottom: 10px;
-        }
-      `}</style>
     </div>
   );
 };
