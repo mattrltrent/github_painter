@@ -2,12 +2,14 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "./../redux/provider";
 import Head from "next/head";
+import GlobalEvents from "./components/GlobalEvents";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "GitHub Painter | Free Contribution Graph Customization Tool",
-  description: "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
+  description:
+    "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
   icons: {
     icon: "/favicon.ico",
   },
@@ -31,7 +33,8 @@ export default function RootLayout({ children }) {
         ></script>
       </Head>
       <html lang="en">
-        <body>
+        <body className={inter.className}>
+          <GlobalEvents />
           <Providers>{children}</Providers>
         </body>
       </html>
