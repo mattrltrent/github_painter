@@ -6,7 +6,6 @@ import Graph from "./components/Graph";
 import PaletteSelector from "./components/PaletteSelector";
 import Title from "./components/Title";
 import YearSelector from "./components/YearSelector";
-import Head from "next/head";
 
 export default function Home() {
   useEffect(() => {
@@ -34,20 +33,6 @@ export default function Home() {
   }
 
   return (
-    (
-      <Head>
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-2826294656662096"
-        ></meta>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2826294656662096"
-          crossorigin="anonymous"
-        ></script>
-      </Head>
-    ),
-    (
       <div className={styles.all}>
         <div >
           <a 
@@ -67,6 +52,5 @@ export default function Home() {
           <PaletteSelector />
         </main>
       </div>
-    )
   );
 }
