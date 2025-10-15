@@ -41,7 +41,7 @@ export default function Home() {
             href="https://matthewtrent.me/resume.pdf"
           >
             <b>
-             Looking for a Software Engineering Intern? Check out my resume!
+             Made by Matthew Trent
             </b>
           </a>
         </div>
