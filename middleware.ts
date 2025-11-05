@@ -10,7 +10,7 @@ export function middleware(req: NextRequest) {
   const xfh  = req.headers.get('x-forwarded-host') || '';
   const url  = new URL(req.url);
 
-  console.log('Middleware debug:', { 
+  console.log('Middleware hit:', { 
     host, 
     xfh, 
     pathname: url.pathname,
@@ -30,6 +30,12 @@ export function middleware(req: NextRequest) {
     const path = `/p/github-painter${url.pathname === '/' ? '' : url.pathname}`;
     console.log('Redirecting to:', `https://matthewtrent.me${path}${url.search}`);
     return NextResponse.redirect(`https://matthewtrent.me${path}${url.search}`, 302);
+  }
+
+  // Internal rewrite: /p/github-painter/* -> /*
+  if (url.pathname.startsWith('/p/github-painter')) {
+    const newPath = url.pathname.replace('/p/github-painter', '') || '/';
+    return NextResponse.rewrite(new URL(newPath + url.search, req.url));
   }
 
   return NextResponse.next();
