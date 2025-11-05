@@ -10,14 +10,25 @@ export function middleware(req: NextRequest) {
   const xfh  = req.headers.get('x-forwarded-host') || '';
   const url  = new URL(req.url);
 
-  // If the request is arriving via your personal site's rewrite, DO NOT redirect (avoids loops)
-  if (PERSONAL.has(host) || PERSONAL.has(xfh)) return NextResponse.next();
+  console.log('Middleware debug:', { 
+    host, 
+    xfh, 
+    pathname: url.pathname,
+    isPersonalProxy: PERSONAL.has(xfh),
+    isPainterHost: PAINTER.has(host)
+  });
 
-  // If a user is directly on the Painter origin, send them to your personal path
+  // If the request is being proxied from your personal site, DO NOT redirect (avoids loops)
+  // Vercel automatically sets x-forwarded-host to the original domain during external rewrites
+  if (PERSONAL.has(xfh)) {
+    console.log('Proxied request detected, allowing through');
+    return NextResponse.next();
+  }
+
+  // If a user is directly on the Painter origin, redirect to personal site
   if (PAINTER.has(host)) {
-    const path = url.pathname.startsWith('/p/github-painter')
-      ? url.pathname // already on basePath; keep it
-      : `/p/github-painter${url.pathname}`;
+    const path = `/p/github-painter${url.pathname === '/' ? '' : url.pathname}`;
+    console.log('Redirecting to:', `https://matthewtrent.me${path}${url.search}`);
     return NextResponse.redirect(`https://matthewtrent.me${path}${url.search}`, 302);
   }
 
