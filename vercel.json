@@ -1,6 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/p/github-painter", "destination": "/" },
-    { "source": "/p/github-painter/(.*)", "destination": "/$1" }
+  "redirects": [
+    { "source": "/", "destination": "/p/github-painter", "permanent": false }
   ]
 }
