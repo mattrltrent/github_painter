@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+module.exports = {
+  basePath: "/p/github-painter",
+  assetPrefix: "/p/github-painter",
+  images: { remotePatterns: [{ protocol: "https", hostname: "**" }] },
+};
