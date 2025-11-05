@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://matthewtrent.me/p/github-painter/$1",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    { "source": "/p/github-painter", "destination": "/" },
+    { "source": "/p/github-painter/(.*)", "destination": "/$1" }
+  ]
+}

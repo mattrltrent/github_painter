@@ -6,6 +6,7 @@ import GlobalEvents from "./components/GlobalEvents";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  alternates: { canonical: "https://matthewtrent.me/p/github-painter" },
   title: "GitHub Painter | Free Contribution Graph Customization Tool",
   description:
     "Customize your Contribution Graph · Create art with your GitHub contributions · Includes examples · Paint your commits · By Matthew Trent",
