@@ -1,5 +1,0 @@
-{
-  "redirects": [
-    { "source": "/", "destination": "/p/github-painter", "permanent": false }
-  ]
-}
