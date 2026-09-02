@@ -27,7 +27,7 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   if (!fixedUrl) {
     alert('Please enter correct GitHub repository URL'); // Display alert for invalid URL
     console.error('Invalid GitHub URL');
-    return;
+    return false;
   }
 
   arrayToWrite.push(`#!/bin/bash`);
@@ -87,17 +87,8 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
   // clean up the URL object
   URL.revokeObjectURL(url);
 
-  let clickedOk = false;
-  
-  // show javascript confirmation alert that if yes then redirect to github.com/mattrltrent/github_painter
-  // it should ask the user to Star the repo as thank you
-  if (window.confirm("DOWNLOADED! ✅\n\nCould you please star the GitHub Painter repo as a \"thank you\"? (I get notified everytime this happens and it makes me happy, lol 😂)")) {
-    clickedOk = true;
-    window.open("https://github.com/mattrltrent/github_painter", "_blank");
-  }
-
   fetch(
-    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage&extra=" + fixedUrl + "\npressed ok to star=" + clickedOk,
+    "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-script-usage&extra=" + fixedUrl,
     {
       method: "POST",
     }
@@ -107,6 +98,9 @@ function downloadFile(textSlice, graphSlice, yearSlice) {
     })
     .catch((error) => {
     });
+
+  // The caller shows the post-download prompt on true.
+  return true;
 }
 
 export default downloadFile;

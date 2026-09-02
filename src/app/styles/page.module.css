@@ -44,3 +44,35 @@
     padding: 2rem;
   }
 }
+
+/* Desktop: instructions on the left, portfolio preview on the right. */
+.intro {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Grows to fill the gap so the text sits flush with the left edge of the year
+   bar below it and the preview sits flush with the right. max-width rather than
+   flex-basis: in the mobile column layout a basis would be read as a height and
+   leave a huge gap under the instructions. */
+.introText {
+  flex: 1 1 auto;
+  max-width: 900px;
+  min-width: 0;
+}
+
+/* Mobile: the preview isn't rendered at all (the top banner links to the site
+   instead), and the instructions go back to being centered. */
+@media (max-width: 900px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+}

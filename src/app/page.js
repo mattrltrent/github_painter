@@ -1,13 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "../app/styles/page.module.css";
 import Graph from "./components/Graph";
 import PaletteSelector from "./components/PaletteSelector";
+import PortfolioFrame from "./components/PortfolioFrame";
 import Title from "./components/Title";
 import YearSelector from "./components/YearSelector";
+import { portfolioSites, currentPortfolioSite } from "@/utils/portfolio";
 
 export default function Home() {
+  // Resolved after mount so the server render and first client render match.
+  // The banner, the preview and the post-download prompt all read the same
+  // per-load pick.
+  const [site, setSite] = useState(null);
+
+  useEffect(() => {
+    setSite(currentPortfolioSite());
+  }, []);
+
   useEffect(() => {
     fetch(
       "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-view",
@@ -38,15 +49,21 @@ export default function Home() {
           <a 
             className={styles.banner}
             target="_blank"
-            href="https://matthewtrent.me/resume.pdf"
+            rel="noopener noreferrer"
+            href={site || portfolioSites[0]}
           >
             <b>
-             Made by Matthew Trent
+             Made by Matthew Trent (check out my site!)
             </b>
           </a>
         </div>
         <main className={styles.main}>
-          <Title />
+          <div className={styles.intro}>
+            <div className={styles.introText}>
+              <Title />
+            </div>
+            <PortfolioFrame site={site} />
+          </div>
           <YearSelector />
           <Graph />
           <PaletteSelector />

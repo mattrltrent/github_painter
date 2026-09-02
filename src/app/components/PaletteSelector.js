@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPalette } from '../../redux/features/palette/paletteSlice';
 import { clearAll } from '../../redux/features/graph/graphSlice';
 import PaletteButton from "../components/PaletteButton";
 import TextButton from "../components/TextButton";
+import DownloadPrompt from "../components/DownloadPrompt";
 import styles from "../styles/PaletteSelector.module.css";
 import downloadFile from '@/utils/download';
 import { selectGraph } from '../../redux/features/graph/graphSlice';
@@ -21,6 +22,7 @@ const PaletteSelector = () => {
   const selectedYearVal = useSelector(selectedYear);
   const dispatch = useDispatch();
   const buttonRefs = useRef([]);
+  const [showDownloadPrompt, setShowDownloadPrompt] = useState(false);
 
   const handlePaletteSelect = (palette) => {
     dispatch(selectPalette(palette));
@@ -30,8 +32,17 @@ const PaletteSelector = () => {
     dispatch(clearAll());
   };
 
+  const handleDownload = () => {
+    if (downloadFile(selectedTextVal, selectedGraph, selectedYearVal)) {
+      setShowDownloadPrompt(true);
+    }
+  };
+
   return (
     <div className={styles.topRow}>
+      {showDownloadPrompt && (
+        <DownloadPrompt onClose={() => setShowDownloadPrompt(false)} />
+      )}
       <div className={styles.buttonGroup}>
         <TextButton text="Clear board (esc)" onClick={handleClearAll} />
         <div className={styles.between} />
@@ -41,9 +52,9 @@ const PaletteSelector = () => {
         <div className={styles.between} />
         <TextButton  text="GitHub Issues" onClick={() => open("https://github.com/mattrltrent/github_painter/issues")} />
         <div className={styles.between} />
-        <TextButton star text="Star on GitHub (I'm trying to beat my friend)" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
+        <TextButton star text="Star on GitHub" onClick={() => open("https://github.com/mattrltrent/github_painter")} />
         <div className={styles.between} />
-        <TextButton highlighted className={styles.star} text="Download script ->" onClick={() => downloadFile(selectedTextVal, selectedGraph, selectedYearVal)} />
+        <TextButton highlighted className={styles.star} text="Download script ->" onClick={handleDownload} />
       </div>
       <div className="palette-selector">
         <PaletteButton

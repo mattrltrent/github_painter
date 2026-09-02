@@ -1,0 +1,66 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.frameWrap {
+  position: relative;
+  width: 384px;
+  height: 240px;
+  overflow: hidden;
+  background-color: #0f0f0f;
+  border: 1px solid #444444;
+  box-shadow: 0 0 5px #444444;
+}
+
+/* Sits behind the iframe. The embedded sites are client-rendered and can take
+   several seconds to paint; until they do the iframe is transparent and this
+   shows through, then their own background covers it. */
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbbbbb;
+  font-size: 13px;
+}
+
+/* Rendered at desktop width, then scaled down so the preview isn't a zoomed-in
+   corner of the site. 1280 * 0.3 = 384, 800 * 0.3 = 240. */
+.frame {
+  width: 1280px;
+  height: 800px;
+  border: 0;
+  transform: scale(0.3);
+  transform-origin: top left;
+  pointer-events: none;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.overlay:hover {
+  cursor: pointer;
+  background-color: rgba(57, 211, 83, 0.12);
+}
+
+.caption {
+  margin-top: 8px;
+  color: #39d353;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.caption:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
