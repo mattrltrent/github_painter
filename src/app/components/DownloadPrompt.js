@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import styles from "../styles/DownloadPrompt.module.css";
-import { currentPortfolioSite } from "@/utils/portfolio";
+import { currentPortfolioSite, trackPortfolioClick } from "@/utils/portfolio";
 
 const DownloadPrompt = ({ onClose }) => {
   // Graph listens for keydown on window, where Escape clears the whole board.
@@ -20,6 +20,10 @@ const DownloadPrompt = ({ onClose }) => {
   }, [onClose]);
 
   const openPortfolio = () => {
+    const site = currentPortfolioSite();
+
+    trackPortfolioClick("download-prompt", site);
+
     fetch(
       "https://hidden-coast-90561-45544df95b1b.herokuapp.com/api/v1/analytics/?kind=github-painter-portfolio-from-download-clicked",
       {
@@ -30,7 +34,7 @@ const DownloadPrompt = ({ onClose }) => {
       .then((data) => {})
       .catch((error) => {});
 
-    window.open(currentPortfolioSite(), "_blank", "noopener,noreferrer");
+    window.open(site, "_blank", "noopener,noreferrer");
     onClose();
   };
 

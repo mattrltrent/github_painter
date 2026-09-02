@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "../styles/PortfolioFrame.module.css";
-import { portfolioSites } from "@/utils/portfolio";
+import { portfolioSites, trackPortfolioClick } from "@/utils/portfolio";
 
 const DESKTOP_QUERY = "(min-width: 901px)";
 
@@ -46,6 +46,7 @@ const PortfolioFrame = ({ site }) => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Check out my portfolio site"
+          onClick={() => trackPortfolioClick("preview", href)}
         />
       </div>
       <a
@@ -53,6 +54,7 @@ const PortfolioFrame = ({ site }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackPortfolioClick("preview-caption", href)}
       >
         Check out my portfolio site! -&gt;
       </a>

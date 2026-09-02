@@ -7,7 +7,11 @@ import PaletteSelector from "./components/PaletteSelector";
 import PortfolioFrame from "./components/PortfolioFrame";
 import Title from "./components/Title";
 import YearSelector from "./components/YearSelector";
-import { portfolioSites, currentPortfolioSite } from "@/utils/portfolio";
+import {
+  portfolioSites,
+  currentPortfolioSite,
+  trackPortfolioClick,
+} from "@/utils/portfolio";
 
 export default function Home() {
   // Resolved after mount so the server render and first client render match.
@@ -51,6 +55,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             href={site || portfolioSites[0]}
+            onClick={() =>
+              trackPortfolioClick("banner", site || portfolioSites[0])
+            }
           >
             <b>
              Made by Matthew Trent (check out my site!)
